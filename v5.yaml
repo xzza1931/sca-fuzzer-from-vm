@@ -1,0 +1,77 @@
+
+# common.yaml
+input_gen_entropy_bits: 24
+inputs_per_class: 2
+
+enable_speculation_filter: true
+enable_observation_filter: true
+enable_priming: true
+
+program_size: 32
+avg_mem_accesses: 16
+
+logging_modes:
+  - info
+  - stat
+
+instruction_categories:
+- BASE-BINARY
+- BASE-BITBYTE
+- BASE-CMOV
+#- BASE-COND_BR
+- BASE-CONVERT
+- BASE-DATAXFER
+- BASE-FLAGOP
+- BASE-LOGICAL
+- BASE-MISC
+- BASE-NOP
+- BASE-POP
+- BASE-PUSH
+- BASE-SEMAPHORE
+- BASE-SETCC
+# - BASE-STRINGOP
+- BASE-RET
+- BASE-CALL
+
+# these clauses may be re-assigned later
+contract_observation_clause: loads+stores+pc
+contract_execution_clause:
+    - no_speculation
+
+program_generator_seed: 100
+input_gen_seed: 100
+
+
+# common-nsco.yaml
+instruction_blocklist_append:
+- cmpsb
+- cmpsd
+- cmpsw
+- cmpsq
+- scasb
+- scasd
+- scasw
+- scasq
+- repe cmpsb
+- repe cmpsd
+- repe cmpsw
+- repe cmpsq
+- repe scasb
+- repe scasd
+- repe scasw
+- repe scasq
+- repne cmpsb
+- repne cmpsd
+- repne cmpsw
+- repne cmpsq
+- repne scasb
+- repne scasd
+- repne scasw
+- repne scasq
+
+
+# v1.yaml
+max_successors_per_bb: 0
+min_successors_per_bb: 0
+min_bb_per_function: 1
+max_bb_per_function: 1

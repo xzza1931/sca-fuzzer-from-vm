@@ -1,0 +1,38 @@
+.intel_syntax noprefix
+.test_case_enter:
+.section .data.main
+
+# speculative offset:
+# these shifts generate a random page offset, 64-bit aligned
+
+
+.function_0:
+.macro.measurement_start: nop qword ptr [rax + 0xff]
+mov rcx, r14
+add rsp, 8  # ensure that the call and ret use the first cache set
+
+call .function_1
+
+.unreachable:
+// lfence  # if you uncomment this line, the speculation will stop
+and rax, 0b110000000  # reduce the number of possibilities
+mov rax, qword ptr [rcx + rax]  # speculative access
+lfence
+
+.function_1:
+lea rdx, qword ptr [rip + .function_2]
+mov qword ptr [rsp], rdx #这条指令很关键，没有则无法检测
+ret
+
+.function_2:
+mov rdx, qword ptr [rcx + 64]
+mfence
+
+# clear to avoid failing the arch check
+mov rcx, 0
+mov rdx, 0
+
+.section .data.main
+.function_end:
+.macro.measurement_end: nop qword ptr [rax + 0xff]
+.test_case_exit:nop

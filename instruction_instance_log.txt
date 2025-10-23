@@ -1,0 +1,2500 @@
+=====================================
+Instruction name: jns
+Category: BASE-COND_BR
+Control flow: True
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: jns L
+Operands:
+    LabelOperand: <src.interfaces.LabelOperand object at 0x77a5c678cf70>
+Implicit operands:
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c678d300>
+    FlagsOperand: FLAGS: CF|PF|AF|ZF|SFr|TF|IF|DF|OF
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c678d300>
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: jnp
+Category: BASE-COND_BR
+Control flow: True
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: jnp L
+Operands:
+    LabelOperand: <src.interfaces.LabelOperand object at 0x77a5c5b060e0>
+Implicit operands:
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c5b06080>
+    FlagsOperand: FLAGS: CF|PFr|AF|ZF|SF|TF|IF|DF|OF
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c5b06080>
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: idiv
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: idiv M16
+Operands:
+    MemoryOperand: <src.interfaces.MemoryOperand object at 0x77a5c5b05e40>
+Implicit operands:
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c5b05db0>
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c5b05d50>
+    FlagsOperand: FLAGS: CFundef|PFundef|AFundef|ZFundef|SFundef|TF|IF|DF|OFundef
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c5b05db0>
+    <src.interfaces.RegisterOperand object at 0x77a5c5b05d50>
+Memory operands:
+    <src.interfaces.MemoryOperand object at 0x77a5c5b05e40>
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: stc
+Category: BASE-FLAGOP
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: stc
+Operands:
+    (none)
+Implicit operands:
+    FlagsOperand: FLAGS: CFw|PF|AF|ZF|SF|TF|IF|DF|OF
+Register operands:
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: mov
+Category: BASE-DATAXFER
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: mov R64 I64
+Operands:
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c5b071c0>
+    ImmediateOperand: <src.interfaces.ImmediateOperand object at 0x77a5c5b07d90>
+Implicit operands:
+    (none)
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c5b071c0>
+Memory operands:
+Immediate operands:
+    <src.interfaces.ImmediateOperand object at 0x77a5c5b07d90>
+=====================================
+
+=====================================
+Instruction name: cdq
+Category: BASE-CONVERT
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: cdq
+Operands:
+    (none)
+Implicit operands:
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c5b07190>
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c5b07160>
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c5b07190>
+    <src.interfaces.RegisterOperand object at 0x77a5c5b07160>
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: xor
+Category: BASE-LOGICAL
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: xor R64 I32
+Operands:
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c5b06d10>
+    ImmediateOperand: <src.interfaces.ImmediateOperand object at 0x77a5c5b07100>
+Implicit operands:
+    FlagsOperand: FLAGS: CFw|PFw|AFundef|ZFw|SFw|TF|IF|DF|OFw
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c5b06d10>
+Memory operands:
+Immediate operands:
+    <src.interfaces.ImmediateOperand object at 0x77a5c5b07100>
+=====================================
+
+=====================================
+Instruction name: add
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: add R32 I32
+Operands:
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c5b07ca0>
+    ImmediateOperand: <src.interfaces.ImmediateOperand object at 0x77a5c5b07c40>
+Implicit operands:
+    FlagsOperand: FLAGS: CFw|PFw|AFw|ZFw|SFw|TF|IF|DF|OFw
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c5b07ca0>
+Memory operands:
+Immediate operands:
+    <src.interfaces.ImmediateOperand object at 0x77a5c5b07c40>
+=====================================
+
+=====================================
+Instruction name: seto
+Category: BASE-SETCC
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: seto R8
+Operands:
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c5b06aa0>
+Implicit operands:
+    FlagsOperand: FLAGS: CF|PF|AF|ZF|SF|TF|IF|DF|OFr
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c5b06aa0>
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: lock and
+Category: BASE-LOGICAL
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: lock and M16 R16
+Operands:
+    MemoryOperand: <src.interfaces.MemoryOperand object at 0x77a5c5b06980>
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c5b07bb0>
+Implicit operands:
+    FlagsOperand: FLAGS: CFw|PFw|AFundef|ZFw|SFw|TF|IF|DF|OFw
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c5b07bb0>
+Memory operands:
+    <src.interfaces.MemoryOperand object at 0x77a5c5b06980>
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: mov
+Category: BASE-DATAXFER
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: mov R8 M8
+Operands:
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c5b07ac0>
+    MemoryOperand: <src.interfaces.MemoryOperand object at 0x77a5c5b07a60>
+Implicit operands:
+    (none)
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c5b07ac0>
+Memory operands:
+    <src.interfaces.MemoryOperand object at 0x77a5c5b07a60>
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: cmp
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: cmp M64 R64
+Operands:
+    MemoryOperand: <src.interfaces.MemoryOperand object at 0x77a5c5b079d0>
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c5b07970>
+Implicit operands:
+    FlagsOperand: FLAGS: CFw|PFw|AFw|ZFw|SFw|TF|IF|DF|OFw
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c5b07970>
+Memory operands:
+    <src.interfaces.MemoryOperand object at 0x77a5c5b079d0>
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: btc
+Category: BASE-BITBYTE
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: btc R64 R64
+Operands:
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c5b07880>
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c5b077f0>
+Implicit operands:
+    FlagsOperand: FLAGS: CFw|PFundef|AFundef|ZF|SFundef|TF|IF|DF|OFundef
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c5b07880>
+    <src.interfaces.RegisterOperand object at 0x77a5c5b077f0>
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: idiv
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: idiv R8
+Operands:
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c5b07700>
+Implicit operands:
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c5b076a0>
+    FlagsOperand: FLAGS: CFundef|PFundef|AFundef|ZFundef|SFundef|TF|IF|DF|OFundef
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c5b076a0>
+    <src.interfaces.RegisterOperand object at 0x77a5c5b07700>
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: sub
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: sub R64 I8
+Operands:
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c5b075b0>
+    ImmediateOperand: <src.interfaces.ImmediateOperand object at 0x77a5c5b07550>
+Implicit operands:
+    FlagsOperand: FLAGS: CFw|PFw|AFw|ZFw|SFw|TF|IF|DF|OFw
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c5b075b0>
+Memory operands:
+Immediate operands:
+    <src.interfaces.ImmediateOperand object at 0x77a5c5b07550>
+=====================================
+
+=====================================
+Instruction name: sub
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: sub R32 M32
+Operands:
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c5b07430>
+    MemoryOperand: <src.interfaces.MemoryOperand object at 0x77a5c5b073d0>
+Implicit operands:
+    FlagsOperand: FLAGS: CFw|PFw|AFw|ZFw|SFw|TF|IF|DF|OFw
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c5b07430>
+Memory operands:
+    <src.interfaces.MemoryOperand object at 0x77a5c5b073d0>
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: bt
+Category: BASE-BITBYTE
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: bt R16 R16
+Operands:
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c5b072e0>
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c61a8070>
+Implicit operands:
+    FlagsOperand: FLAGS: CFw|PFundef|AFundef|ZF|SFundef|TF|IF|DF|OFundef
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c5b072e0>
+    <src.interfaces.RegisterOperand object at 0x77a5c61a8070>
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: xor
+Category: BASE-LOGICAL
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: xor R8 M8
+Operands:
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c61abf40>
+    MemoryOperand: <src.interfaces.MemoryOperand object at 0x77a5c61ab970>
+Implicit operands:
+    FlagsOperand: FLAGS: CFw|PFw|AFundef|ZFw|SFw|TF|IF|DF|OFw
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c61abf40>
+Memory operands:
+    <src.interfaces.MemoryOperand object at 0x77a5c61ab970>
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: cmovbe
+Category: BASE-CMOV
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: cmovbe R16 R16
+Operands:
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c61ab790>
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c61ab520>
+Implicit operands:
+    FlagsOperand: FLAGS: CFr|PF|AF|ZFr|SF|TF|IF|DF|OF
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c61ab790>
+    <src.interfaces.RegisterOperand object at 0x77a5c61ab520>
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: cmp
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: cmp R8 I8
+Operands:
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c61ab4f0>
+    ImmediateOperand: <src.interfaces.ImmediateOperand object at 0x77a5c61ab4c0>
+Implicit operands:
+    FlagsOperand: FLAGS: CFw|PFw|AFw|ZFw|SFw|TF|IF|DF|OFw
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c61ab4f0>
+Memory operands:
+Immediate operands:
+    <src.interfaces.ImmediateOperand object at 0x77a5c61ab4c0>
+=====================================
+
+=====================================
+Instruction name: setnp
+Category: BASE-SETCC
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: setnp M8
+Operands:
+    MemoryOperand: <src.interfaces.MemoryOperand object at 0x77a5c61ab100>
+Implicit operands:
+    FlagsOperand: FLAGS: CF|PFr|AF|ZF|SF|TF|IF|DF|OF
+Register operands:
+Memory operands:
+    <src.interfaces.MemoryOperand object at 0x77a5c61ab100>
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: lock sub
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: lock sub M64 R64
+Operands:
+    MemoryOperand: <src.interfaces.MemoryOperand object at 0x77a5c61aa2f0>
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c61aa2c0>
+Implicit operands:
+    FlagsOperand: FLAGS: CFw|PFw|AFw|ZFw|SFw|TF|IF|DF|OFw
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c61aa2c0>
+Memory operands:
+    <src.interfaces.MemoryOperand object at 0x77a5c61aa2f0>
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: cmp
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: cmp R8 I8
+Operands:
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c61a9ea0>
+    ImmediateOperand: <src.interfaces.ImmediateOperand object at 0x77a5c61a9f90>
+Implicit operands:
+    FlagsOperand: FLAGS: CFw|PFw|AFw|ZFw|SFw|TF|IF|DF|OFw
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c61a9ea0>
+Memory operands:
+Immediate operands:
+    <src.interfaces.ImmediateOperand object at 0x77a5c61a9f90>
+=====================================
+
+=====================================
+Instruction name: test
+Category: BASE-LOGICAL
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: test R8 R8
+Operands:
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c61a9f00>
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c61a9e70>
+Implicit operands:
+    FlagsOperand: FLAGS: CFw|PFw|AFundef|ZFw|SFw|TF|IF|DF|OFw
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c61a9f00>
+    <src.interfaces.RegisterOperand object at 0x77a5c61a9e70>
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: bswap
+Category: BASE-DATAXFER
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: bswap R32
+Operands:
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c61a9d50>
+Implicit operands:
+    (none)
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c61a9d50>
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: movsx
+Category: BASE-DATAXFER
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: movsx R64 R16
+Operands:
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c61a9c30>
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c61a9c00>
+Implicit operands:
+    (none)
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c61a9c30>
+    <src.interfaces.RegisterOperand object at 0x77a5c61a9c00>
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: add
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: add R8 R8
+Operands:
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c61a9810>
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c61a8fa0>
+Implicit operands:
+    FlagsOperand: FLAGS: CFw|PFw|AFw|ZFw|SFw|TF|IF|DF|OFw
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c61a9810>
+    <src.interfaces.RegisterOperand object at 0x77a5c61a8fa0>
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: and
+Category: BASE-LOGICAL
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: and M8 R8
+Operands:
+    MemoryOperand: <src.interfaces.MemoryOperand object at 0x77a5c61a9030>
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c61a9000>
+Implicit operands:
+    FlagsOperand: FLAGS: CFw|PFw|AFundef|ZFw|SFw|TF|IF|DF|OFw
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c61a9000>
+Memory operands:
+    <src.interfaces.MemoryOperand object at 0x77a5c61a9030>
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: xchg
+Category: BASE-DATAXFER
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: xchg R8 R8
+Operands:
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c61a8ca0>
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c61a8d90>
+Implicit operands:
+    (none)
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c61a8ca0>
+    <src.interfaces.RegisterOperand object at 0x77a5c61a8d90>
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: mov
+Category: BASE-DATAXFER
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: mov R32 M32
+Operands:
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c61a8d30>
+    MemoryOperand: <src.interfaces.MemoryOperand object at 0x77a5c61a8d00>
+Implicit operands:
+    (none)
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c61a8d30>
+Memory operands:
+    <src.interfaces.MemoryOperand object at 0x77a5c61a8d00>
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: bsf
+Category: BASE-BITBYTE
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: bsf R16 R16
+Operands:
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c61a89d0>
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c61a8820>
+Implicit operands:
+    FlagsOperand: FLAGS: CFundef|PFundef|AFundef|ZFw|SFundef|TF|IF|DF|OFundef
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c61a89d0>
+    <src.interfaces.RegisterOperand object at 0x77a5c61a8820>
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: setz
+Category: BASE-SETCC
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: setz R8
+Operands:
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c61a88b0>
+Implicit operands:
+    FlagsOperand: FLAGS: CF|PF|AF|ZFr|SF|TF|IF|DF|OF
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c61a88b0>
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: adc
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: adc R8 I8
+Operands:
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c61a8790>
+    ImmediateOperand: <src.interfaces.ImmediateOperand object at 0x77a5c61a83a0>
+Implicit operands:
+    FlagsOperand: FLAGS: CFr/w|PFw|AFw|ZFw|SFw|TF|IF|DF|OFw
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c61a8790>
+Memory operands:
+Immediate operands:
+    <src.interfaces.ImmediateOperand object at 0x77a5c61a83a0>
+=====================================
+
+=====================================
+Instruction name: cmovnle
+Category: BASE-CMOV
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: cmovnle R64 M64
+Operands:
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c61a8370>
+    MemoryOperand: <src.interfaces.MemoryOperand object at 0x77a5c61a8340>
+Implicit operands:
+    FlagsOperand: FLAGS: CF|PF|AF|ZFr|SFr|TF|IF|DF|OFr
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c61a8370>
+Memory operands:
+    <src.interfaces.MemoryOperand object at 0x77a5c61a8340>
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: add
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: add R8 I8
+Operands:
+    RegisterOperand: <src.interfaces.RegisterOperand object at 0x77a5c6193e80>
+    ImmediateOperand: <src.interfaces.ImmediateOperand object at 0x77a5c6193d30>
+Implicit operands:
+    FlagsOperand: FLAGS: CFw|PFw|AFw|ZFw|SFw|TF|IF|DF|OFw
+Register operands:
+    <src.interfaces.RegisterOperand object at 0x77a5c6193e80>
+Memory operands:
+Immediate operands:
+    <src.interfaces.ImmediateOperand object at 0x77a5c6193d30>
+=====================================
+
+=====================================
+Instruction name: jns
+Category: BASE-COND_BR
+Control flow: True
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: jns L
+Operands:
+=====================================
+Instruction name: jns
+Category: BASE-COND_BR
+Control flow: True
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: jns L
+Operands:
+    
+Implicit operands:
+    rip
+    FLAGS
+Register operands:
+    rip
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: jnp
+Category: BASE-COND_BR
+Control flow: True
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: jnp L
+Operands:
+    
+Implicit operands:
+    rip
+    FLAGS
+Register operands:
+    rip
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: idiv
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: idiv M16
+Operands:
+    rdi
+Implicit operands:
+    ax
+    dx
+    FLAGS
+Register operands:
+    ax
+    dx
+Memory operands:
+    rdi
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: stc
+Category: BASE-FLAGOP
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: stc
+Operands:
+    (none)
+Implicit operands:
+    FLAGS
+Register operands:
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: mov
+Category: BASE-DATAXFER
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: mov R64 I64
+Operands:
+    rbx
+    -6934255027708896446
+Implicit operands:
+    (none)
+Register operands:
+    rbx
+Memory operands:
+Immediate operands:
+    -6934255027708896446
+=====================================
+
+=====================================
+Instruction name: cdq
+Category: BASE-CONVERT
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: cdq
+Operands:
+    (none)
+Implicit operands:
+    edx
+    eax
+Register operands:
+    edx
+    eax
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: xor
+Category: BASE-LOGICAL
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: xor R64 I32
+Operands:
+    rax
+    -482493764
+Implicit operands:
+    FLAGS
+Register operands:
+    rax
+Memory operands:
+Immediate operands:
+    -482493764
+=====================================
+
+=====================================
+Instruction name: add
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: add R32 I32
+Operands:
+    eax
+    388155814
+Implicit operands:
+    FLAGS
+Register operands:
+    eax
+Memory operands:
+Immediate operands:
+    388155814
+=====================================
+
+=====================================
+Instruction name: seto
+Category: BASE-SETCC
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: seto R8
+Operands:
+    cl
+Implicit operands:
+    FLAGS
+Register operands:
+    cl
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: lock and
+Category: BASE-LOGICAL
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: lock and M16 R16
+Operands:
+    rcx
+    si
+Implicit operands:
+    FLAGS
+Register operands:
+    si
+Memory operands:
+    rcx
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: mov
+Category: BASE-DATAXFER
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: mov R8 M8
+Operands:
+    dl
+    rsi
+Implicit operands:
+    (none)
+Register operands:
+    dl
+Memory operands:
+    rsi
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: cmp
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: cmp M64 R64
+Operands:
+    rbx
+    rax
+Implicit operands:
+    FLAGS
+Register operands:
+    rax
+Memory operands:
+    rbx
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: btc
+Category: BASE-BITBYTE
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: btc R64 R64
+Operands:
+    rsi
+    rax
+Implicit operands:
+    FLAGS
+Register operands:
+    rsi
+    rax
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: idiv
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: idiv R8
+Operands:
+    dl
+Implicit operands:
+    ax
+    FLAGS
+Register operands:
+    ax
+    dl
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: sub
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: sub R64 I8
+Operands:
+    rcx
+    1
+Implicit operands:
+    FLAGS
+Register operands:
+    rcx
+Memory operands:
+Immediate operands:
+    1
+=====================================
+
+=====================================
+Instruction name: sub
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: sub R32 M32
+Operands:
+    ebx
+    rax
+Implicit operands:
+    FLAGS
+Register operands:
+    ebx
+Memory operands:
+    rax
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: bt
+Category: BASE-BITBYTE
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: bt R16 R16
+Operands:
+    di
+    si
+Implicit operands:
+    FLAGS
+Register operands:
+    di
+    si
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: xor
+Category: BASE-LOGICAL
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: xor R8 M8
+Operands:
+    dl
+    rsi
+Implicit operands:
+    FLAGS
+Register operands:
+    dl
+Memory operands:
+    rsi
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: cmovbe
+Category: BASE-CMOV
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: cmovbe R16 R16
+Operands:
+    ax
+    di
+Implicit operands:
+    FLAGS
+Register operands:
+    ax
+    di
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: cmp
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: cmp R8 I8
+Operands:
+    dil
+    -2
+Implicit operands:
+    FLAGS
+Register operands:
+    dil
+Memory operands:
+Immediate operands:
+    -2
+=====================================
+
+=====================================
+Instruction name: setnp
+Category: BASE-SETCC
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: setnp M8
+Operands:
+    rax
+Implicit operands:
+    FLAGS
+Register operands:
+Memory operands:
+    rax
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: lock sub
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: lock sub M64 R64
+Operands:
+    rsi
+    rbx
+Implicit operands:
+    FLAGS
+Register operands:
+    rbx
+Memory operands:
+    rsi
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: cmp
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: cmp R8 I8
+Operands:
+    dl
+    2
+Implicit operands:
+    FLAGS
+Register operands:
+    dl
+Memory operands:
+Immediate operands:
+    2
+=====================================
+
+=====================================
+Instruction name: test
+Category: BASE-LOGICAL
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: test R8 R8
+Operands:
+    cl
+    dl
+Implicit operands:
+    FLAGS
+Register operands:
+    cl
+    dl
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: bswap
+Category: BASE-DATAXFER
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: bswap R32
+Operands:
+    ebx
+Implicit operands:
+    (none)
+Register operands:
+    ebx
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: movsx
+Category: BASE-DATAXFER
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: movsx R64 R16
+Operands:
+    rcx
+    ax
+Implicit operands:
+    (none)
+Register operands:
+    rcx
+    ax
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: add
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: add R8 R8
+Operands:
+    al
+    dl
+Implicit operands:
+    FLAGS
+Register operands:
+    al
+    dl
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: and
+Category: BASE-LOGICAL
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: and M8 R8
+Operands:
+    rbx
+    cl
+Implicit operands:
+    FLAGS
+Register operands:
+    cl
+Memory operands:
+    rbx
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: xchg
+Category: BASE-DATAXFER
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: xchg R8 R8
+Operands:
+    al
+    al
+Implicit operands:
+    (none)
+Register operands:
+    al
+    al
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: mov
+Category: BASE-DATAXFER
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: mov R32 M32
+Operands:
+    eax
+    rdi
+Implicit operands:
+    (none)
+Register operands:
+    eax
+Memory operands:
+    rdi
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: bsf
+Category: BASE-BITBYTE
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: bsf R16 R16
+Operands:
+    ax
+    si
+Implicit operands:
+    FLAGS
+Register operands:
+    ax
+    si
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: setz
+Category: BASE-SETCC
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: setz R8
+Operands:
+    bl
+Implicit operands:
+    FLAGS
+Register operands:
+    bl
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: adc
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: adc R8 I8
+Operands:
+    al
+    74
+Implicit operands:
+    FLAGS
+Register operands:
+    al
+Memory operands:
+Immediate operands:
+    74
+=====================================
+
+=====================================
+Instruction name: cmovnle
+Category: BASE-CMOV
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: cmovnle R64 M64
+Operands:
+    rbx
+    rbx
+Implicit operands:
+    FLAGS
+Register operands:
+    rbx
+Memory operands:
+    rbx
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: add
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: add R8 I8
+Operands:
+    sil
+    8
+Implicit operands:
+    FLAGS
+Register operands:
+    sil
+Memory operands:
+Immediate operands:
+    8
+=====================================
+
+=====================================
+Instruction name: jns
+Category: BASE-COND_BR
+Control flow: True
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: jns L
+Operands:
+    
+Implicit operands:
+    rip
+    FLAGS
+Register operands:
+    rip
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: jnp
+Category: BASE-COND_BR
+Control flow: True
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: jnp L
+Operands:
+    
+Implicit operands:
+    rip
+    FLAGS
+Register operands:
+    rip
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: idiv
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: idiv M16
+Operands:
+    rdi
+Implicit operands:
+    ax
+    dx
+    FLAGS
+Register operands:
+    ax
+    dx
+Memory operands:
+    rdi
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: stc
+Category: BASE-FLAGOP
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: stc
+Operands:
+    (none)
+Implicit operands:
+    FLAGS
+Register operands:
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: mov
+Category: BASE-DATAXFER
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: mov R64 I64
+Operands:
+    rbx
+    -6934255027708896446
+Implicit operands:
+    (none)
+Register operands:
+    rbx
+Memory operands:
+Immediate operands:
+    -6934255027708896446
+=====================================
+
+=====================================
+Instruction name: cdq
+Category: BASE-CONVERT
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: cdq
+Operands:
+    (none)
+Implicit operands:
+    edx
+    eax
+Register operands:
+    edx
+    eax
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: xor
+Category: BASE-LOGICAL
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: xor R64 I32
+Operands:
+    rax
+    -482493764
+Implicit operands:
+    FLAGS
+Register operands:
+    rax
+Memory operands:
+Immediate operands:
+    -482493764
+=====================================
+
+=====================================
+Instruction name: add
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: add R32 I32
+Operands:
+    eax
+    388155814
+Implicit operands:
+    FLAGS
+Register operands:
+    eax
+Memory operands:
+Immediate operands:
+    388155814
+=====================================
+
+=====================================
+Instruction name: seto
+Category: BASE-SETCC
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: seto R8
+Operands:
+    cl
+Implicit operands:
+    FLAGS
+Register operands:
+    cl
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: lock and
+Category: BASE-LOGICAL
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: lock and M16 R16
+Operands:
+    rcx
+    si
+Implicit operands:
+    FLAGS
+Register operands:
+    si
+Memory operands:
+    rcx
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: mov
+Category: BASE-DATAXFER
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: mov R8 M8
+Operands:
+    dl
+    rsi
+Implicit operands:
+    (none)
+Register operands:
+    dl
+Memory operands:
+    rsi
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: cmp
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: cmp M64 R64
+Operands:
+    rbx
+    rax
+Implicit operands:
+    FLAGS
+Register operands:
+    rax
+Memory operands:
+    rbx
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: btc
+Category: BASE-BITBYTE
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: btc R64 R64
+Operands:
+    rsi
+    rax
+Implicit operands:
+    FLAGS
+Register operands:
+    rsi
+    rax
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: idiv
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: idiv R8
+Operands:
+    dl
+Implicit operands:
+    ax
+    FLAGS
+Register operands:
+    ax
+    dl
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: sub
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: sub R64 I8
+Operands:
+    rcx
+    1
+Implicit operands:
+    FLAGS
+Register operands:
+    rcx
+Memory operands:
+Immediate operands:
+    1
+=====================================
+
+=====================================
+Instruction name: sub
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: sub R32 M32
+Operands:
+    ebx
+    rax
+Implicit operands:
+    FLAGS
+Register operands:
+    ebx
+Memory operands:
+    rax
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: bt
+Category: BASE-BITBYTE
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: bt R16 R16
+Operands:
+    di
+    si
+Implicit operands:
+    FLAGS
+Register operands:
+    di
+    si
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: xor
+Category: BASE-LOGICAL
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: xor R8 M8
+Operands:
+    dl
+    rsi
+Implicit operands:
+    FLAGS
+Register operands:
+    dl
+Memory operands:
+    rsi
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: cmovbe
+Category: BASE-CMOV
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: cmovbe R16 R16
+Operands:
+    ax
+    di
+Implicit operands:
+    FLAGS
+Register operands:
+    ax
+    di
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: cmp
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: cmp R8 I8
+Operands:
+    dil
+    -2
+Implicit operands:
+    FLAGS
+Register operands:
+    dil
+Memory operands:
+Immediate operands:
+    -2
+=====================================
+
+=====================================
+Instruction name: setnp
+Category: BASE-SETCC
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: setnp M8
+Operands:
+    rax
+Implicit operands:
+    FLAGS
+Register operands:
+Memory operands:
+    rax
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: lock sub
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: lock sub M64 R64
+Operands:
+    rsi
+    rbx
+Implicit operands:
+    FLAGS
+Register operands:
+    rbx
+Memory operands:
+    rsi
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: cmp
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: cmp R8 I8
+Operands:
+    dl
+    2
+Implicit operands:
+    FLAGS
+Register operands:
+    dl
+Memory operands:
+Immediate operands:
+    2
+=====================================
+
+=====================================
+Instruction name: test
+Category: BASE-LOGICAL
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: test R8 R8
+Operands:
+    cl
+    dl
+Implicit operands:
+    FLAGS
+Register operands:
+    cl
+    dl
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: bswap
+Category: BASE-DATAXFER
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: bswap R32
+Operands:
+    ebx
+Implicit operands:
+    (none)
+Register operands:
+    ebx
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: movsx
+Category: BASE-DATAXFER
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: movsx R64 R16
+Operands:
+    rcx
+    ax
+Implicit operands:
+    (none)
+Register operands:
+    rcx
+    ax
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: add
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: add R8 R8
+Operands:
+    al
+    dl
+Implicit operands:
+    FLAGS
+Register operands:
+    al
+    dl
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: and
+Category: BASE-LOGICAL
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: and M8 R8
+Operands:
+    rbx
+    cl
+Implicit operands:
+    FLAGS
+Register operands:
+    cl
+Memory operands:
+    rbx
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: xchg
+Category: BASE-DATAXFER
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: xchg R8 R8
+Operands:
+    al
+    al
+Implicit operands:
+    (none)
+Register operands:
+    al
+    al
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: mov
+Category: BASE-DATAXFER
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: mov R32 M32
+Operands:
+    eax
+    rdi
+Implicit operands:
+    (none)
+Register operands:
+    eax
+Memory operands:
+    rdi
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: bsf
+Category: BASE-BITBYTE
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: bsf R16 R16
+Operands:
+    ax
+    si
+Implicit operands:
+    FLAGS
+Register operands:
+    ax
+    si
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: setz
+Category: BASE-SETCC
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: setz R8
+Operands:
+    bl
+Implicit operands:
+    FLAGS
+Register operands:
+    bl
+Memory operands:
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: adc
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: adc R8 I8
+Operands:
+    al
+    74
+Implicit operands:
+    FLAGS
+Register operands:
+    al
+Memory operands:
+Immediate operands:
+    74
+=====================================
+
+=====================================
+Instruction name: cmovnle
+Category: BASE-CMOV
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: cmovnle R64 M64
+Operands:
+    rbx
+    rbx
+Implicit operands:
+    FLAGS
+Register operands:
+    rbx
+Memory operands:
+    rbx
+Immediate operands:
+=====================================
+
+=====================================
+Instruction name: add
+Category: BASE-BINARY
+Control flow: False
+Is instrumentation: False
+Is from template: False
+Is no-remove: False
+Section ID: 0
+Section offset: 0
+Line number: 0
+Size (bytes): 0
+Brief representation: add R8 I8
+Operands:
+    sil
+    8
+Implicit operands:
+    FLAGS
+Register operands:
+    sil
+Memory operands:
+Immediate operands:
+    8
+=====================================
+

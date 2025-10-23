@@ -1,0 +1,1448 @@
+=====================================
+Instruction name: jns
+Category: BASE-COND_BR
+Control flow: True
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    []
+Implicit operands:
+    ['rip']
+    ['', '', '', '', 'r', '', '', '', '']
+=====================================
+
+=====================================
+Instruction name: jnp
+Category: BASE-COND_BR
+Control flow: True
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    []
+Implicit operands:
+    ['rip']
+    ['', 'r', '', '', '', '', '', '', '']
+=====================================
+
+=====================================
+Instruction name: idiv
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: True
+Has write: False
+Has magic value: False
+Operands:
+    []
+Implicit operands:
+    ['ax']
+    ['dx']
+    ['undef', 'undef', 'undef', 'undef', 'undef', '', '', '', 'undef']
+=====================================
+
+=====================================
+Instruction name: stc
+Category: BASE-FLAGOP
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+Implicit operands:
+    ['w', '', '', '', '', '', '', '', '']
+=====================================
+
+=====================================
+Instruction name: mov
+Category: BASE-DATAXFER
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi']
+    []
+Implicit operands:
+=====================================
+
+=====================================
+Instruction name: cdq
+Category: BASE-CONVERT
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+Implicit operands:
+    ['edx']
+    ['eax']
+=====================================
+
+=====================================
+Instruction name: xor
+Category: BASE-LOGICAL
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['rax']
+    []
+Implicit operands:
+    ['w', 'w', 'undef', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: add
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['eax']
+    []
+Implicit operands:
+    ['w', 'w', 'w', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: seto
+Category: BASE-SETCC
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['al', 'bl', 'cl', 'dl']
+Implicit operands:
+    ['', '', '', '', '', '', '', '', 'r']
+=====================================
+
+=====================================
+Instruction name: lock and
+Category: BASE-LOGICAL
+Control flow: False
+Has memory operand: True
+Has write: True
+Has magic value: False
+Operands:
+    []
+    ['ax', 'bx', 'cx', 'di', 'dx', 'si']
+Implicit operands:
+    ['w', 'w', 'undef', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: mov
+Category: BASE-DATAXFER
+Control flow: False
+Has memory operand: True
+Has write: False
+Has magic value: False
+Operands:
+    ['al', 'bl', 'cl', 'dl']
+    []
+Implicit operands:
+=====================================
+
+=====================================
+Instruction name: cmp
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: True
+Has write: False
+Has magic value: False
+Operands:
+    []
+    ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi']
+Implicit operands:
+    ['w', 'w', 'w', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: btc
+Category: BASE-BITBYTE
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi']
+    ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi']
+Implicit operands:
+    ['w', 'undef', 'undef', '', 'undef', '', '', '', 'undef']
+=====================================
+
+=====================================
+Instruction name: idiv
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['al', 'bl', 'cl', 'dil', 'dl', 'sil']
+Implicit operands:
+    ['ax']
+    ['undef', 'undef', 'undef', 'undef', 'undef', '', '', '', 'undef']
+=====================================
+
+=====================================
+Instruction name: sub
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi']
+    []
+Implicit operands:
+    ['w', 'w', 'w', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: sub
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: True
+Has write: False
+Has magic value: False
+Operands:
+    ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi']
+    []
+Implicit operands:
+    ['w', 'w', 'w', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: bt
+Category: BASE-BITBYTE
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['ax', 'bx', 'cx', 'di', 'dx', 'si']
+    ['ax', 'bx', 'cx', 'di', 'dx', 'si']
+Implicit operands:
+    ['w', 'undef', 'undef', '', 'undef', '', '', '', 'undef']
+=====================================
+
+=====================================
+Instruction name: xor
+Category: BASE-LOGICAL
+Control flow: False
+Has memory operand: True
+Has write: False
+Has magic value: False
+Operands:
+    ['al', 'bl', 'cl', 'dl']
+    []
+Implicit operands:
+    ['w', 'w', 'undef', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: cmovbe
+Category: BASE-CMOV
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['ax', 'bx', 'cx', 'di', 'dx', 'si']
+    ['ax', 'bx', 'cx', 'di', 'dx', 'si']
+Implicit operands:
+    ['r', '', '', 'r', '', '', '', '', '']
+=====================================
+
+=====================================
+Instruction name: cmp
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['dil', 'sil']
+    []
+Implicit operands:
+    ['w', 'w', 'w', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: setnp
+Category: BASE-SETCC
+Control flow: False
+Has memory operand: True
+Has write: True
+Has magic value: False
+Operands:
+    []
+Implicit operands:
+    ['', 'r', '', '', '', '', '', '', '']
+=====================================
+
+=====================================
+Instruction name: lock sub
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: True
+Has write: True
+Has magic value: False
+Operands:
+    []
+    ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi']
+Implicit operands:
+    ['w', 'w', 'w', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: cmp
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['al', 'bl', 'cl', 'dl']
+    []
+Implicit operands:
+    ['w', 'w', 'w', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: test
+Category: BASE-LOGICAL
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['al', 'bl', 'cl', 'dl']
+    ['al', 'bl', 'cl', 'dl']
+Implicit operands:
+    ['w', 'w', 'undef', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: bswap
+Category: BASE-DATAXFER
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi']
+Implicit operands:
+=====================================
+
+=====================================
+Instruction name: movsx
+Category: BASE-DATAXFER
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi']
+    ['ax', 'bx', 'cx', 'di', 'dx', 'si']
+Implicit operands:
+=====================================
+
+=====================================
+Instruction name: add
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['al', 'bl', 'cl', 'dil', 'dl', 'sil']
+    ['al', 'bl', 'cl', 'dil', 'dl', 'sil']
+Implicit operands:
+    ['w', 'w', 'w', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: and
+Category: BASE-LOGICAL
+Control flow: False
+Has memory operand: True
+Has write: True
+Has magic value: False
+Operands:
+    []
+    ['al', 'bl', 'cl', 'dil', 'dl', 'sil']
+Implicit operands:
+    ['w', 'w', 'undef', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: xchg
+Category: BASE-DATAXFER
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['al', 'bl', 'cl', 'dl']
+    ['al', 'bl', 'cl', 'dl']
+Implicit operands:
+=====================================
+
+=====================================
+Instruction name: mov
+Category: BASE-DATAXFER
+Control flow: False
+Has memory operand: True
+Has write: False
+Has magic value: False
+Operands:
+    ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi']
+    []
+Implicit operands:
+=====================================
+
+=====================================
+Instruction name: bsf
+Category: BASE-BITBYTE
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['ax', 'bx', 'cx', 'di', 'dx', 'si']
+    ['ax', 'bx', 'cx', 'di', 'dx', 'si']
+Implicit operands:
+    ['undef', 'undef', 'undef', 'w', 'undef', '', '', '', 'undef']
+=====================================
+
+=====================================
+Instruction name: setz
+Category: BASE-SETCC
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['al', 'bl', 'cl', 'dl']
+Implicit operands:
+    ['', '', '', 'r', '', '', '', '', '']
+=====================================
+
+=====================================
+Instruction name: adc
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['al', 'bl', 'cl', 'dl']
+    []
+Implicit operands:
+    ['r/w', 'w', 'w', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: cmovnle
+Category: BASE-CMOV
+Control flow: False
+Has memory operand: True
+Has write: False
+Has magic value: False
+Operands:
+    ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi']
+    []
+Implicit operands:
+    ['', '', '', 'r', 'r', '', '', '', 'r']
+=====================================
+
+=====================================
+Instruction name: add
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['dil', 'sil']
+    []
+Implicit operands:
+    ['w', 'w', 'w', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: jns
+Category: BASE-COND_BR
+Control flow: True
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    []
+Implicit operands:
+    ['rip']
+    ['', '', '', '', 'r', '', '', '', '']
+=====================================
+
+=====================================
+Instruction name: jns
+Category: BASE-COND_BR
+Control flow: True
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    []
+Implicit operands:
+    ['rip']
+    ['', '', '', '', 'r', '', '', '', '']
+=====================================
+
+=====================================
+Instruction name: jnp
+Category: BASE-COND_BR
+Control flow: True
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    []
+Implicit operands:
+    ['rip']
+    ['', 'r', '', '', '', '', '', '', '']
+=====================================
+
+=====================================
+Instruction name: idiv
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: True
+Has write: False
+Has magic value: False
+Operands:
+    []
+Implicit operands:
+    ['ax']
+    ['dx']
+    ['undef', 'undef', 'undef', 'undef', 'undef', '', '', '', 'undef']
+=====================================
+
+=====================================
+Instruction name: stc
+Category: BASE-FLAGOP
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+Implicit operands:
+    ['w', '', '', '', '', '', '', '', '']
+=====================================
+
+=====================================
+Instruction name: mov
+Category: BASE-DATAXFER
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi']
+    []
+Implicit operands:
+=====================================
+
+=====================================
+Instruction name: cdq
+Category: BASE-CONVERT
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+Implicit operands:
+    ['edx']
+    ['eax']
+=====================================
+
+=====================================
+Instruction name: xor
+Category: BASE-LOGICAL
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['rax']
+    []
+Implicit operands:
+    ['w', 'w', 'undef', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: add
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['eax']
+    []
+Implicit operands:
+    ['w', 'w', 'w', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: seto
+Category: BASE-SETCC
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['al', 'bl', 'cl', 'dl']
+Implicit operands:
+    ['', '', '', '', '', '', '', '', 'r']
+=====================================
+
+=====================================
+Instruction name: lock and
+Category: BASE-LOGICAL
+Control flow: False
+Has memory operand: True
+Has write: True
+Has magic value: False
+Operands:
+    []
+    ['ax', 'bx', 'cx', 'di', 'dx', 'si']
+Implicit operands:
+    ['w', 'w', 'undef', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: mov
+Category: BASE-DATAXFER
+Control flow: False
+Has memory operand: True
+Has write: False
+Has magic value: False
+Operands:
+    ['al', 'bl', 'cl', 'dl']
+    []
+Implicit operands:
+=====================================
+
+=====================================
+Instruction name: cmp
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: True
+Has write: False
+Has magic value: False
+Operands:
+    []
+    ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi']
+Implicit operands:
+    ['w', 'w', 'w', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: btc
+Category: BASE-BITBYTE
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi']
+    ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi']
+Implicit operands:
+    ['w', 'undef', 'undef', '', 'undef', '', '', '', 'undef']
+=====================================
+
+=====================================
+Instruction name: idiv
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['al', 'bl', 'cl', 'dil', 'dl', 'sil']
+Implicit operands:
+    ['ax']
+    ['undef', 'undef', 'undef', 'undef', 'undef', '', '', '', 'undef']
+=====================================
+
+=====================================
+Instruction name: sub
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi']
+    []
+Implicit operands:
+    ['w', 'w', 'w', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: sub
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: True
+Has write: False
+Has magic value: False
+Operands:
+    ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi']
+    []
+Implicit operands:
+    ['w', 'w', 'w', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: bt
+Category: BASE-BITBYTE
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['ax', 'bx', 'cx', 'di', 'dx', 'si']
+    ['ax', 'bx', 'cx', 'di', 'dx', 'si']
+Implicit operands:
+    ['w', 'undef', 'undef', '', 'undef', '', '', '', 'undef']
+=====================================
+
+=====================================
+Instruction name: xor
+Category: BASE-LOGICAL
+Control flow: False
+Has memory operand: True
+Has write: False
+Has magic value: False
+Operands:
+    ['al', 'bl', 'cl', 'dl']
+    []
+Implicit operands:
+    ['w', 'w', 'undef', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: cmovbe
+Category: BASE-CMOV
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['ax', 'bx', 'cx', 'di', 'dx', 'si']
+    ['ax', 'bx', 'cx', 'di', 'dx', 'si']
+Implicit operands:
+    ['r', '', '', 'r', '', '', '', '', '']
+=====================================
+
+=====================================
+Instruction name: cmp
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['dil', 'sil']
+    []
+Implicit operands:
+    ['w', 'w', 'w', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: setnp
+Category: BASE-SETCC
+Control flow: False
+Has memory operand: True
+Has write: True
+Has magic value: False
+Operands:
+    []
+Implicit operands:
+    ['', 'r', '', '', '', '', '', '', '']
+=====================================
+
+=====================================
+Instruction name: lock sub
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: True
+Has write: True
+Has magic value: False
+Operands:
+    []
+    ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi']
+Implicit operands:
+    ['w', 'w', 'w', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: cmp
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['al', 'bl', 'cl', 'dl']
+    []
+Implicit operands:
+    ['w', 'w', 'w', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: test
+Category: BASE-LOGICAL
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['al', 'bl', 'cl', 'dl']
+    ['al', 'bl', 'cl', 'dl']
+Implicit operands:
+    ['w', 'w', 'undef', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: bswap
+Category: BASE-DATAXFER
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi']
+Implicit operands:
+=====================================
+
+=====================================
+Instruction name: movsx
+Category: BASE-DATAXFER
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi']
+    ['ax', 'bx', 'cx', 'di', 'dx', 'si']
+Implicit operands:
+=====================================
+
+=====================================
+Instruction name: add
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['al', 'bl', 'cl', 'dil', 'dl', 'sil']
+    ['al', 'bl', 'cl', 'dil', 'dl', 'sil']
+Implicit operands:
+    ['w', 'w', 'w', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: and
+Category: BASE-LOGICAL
+Control flow: False
+Has memory operand: True
+Has write: True
+Has magic value: False
+Operands:
+    []
+    ['al', 'bl', 'cl', 'dil', 'dl', 'sil']
+Implicit operands:
+    ['w', 'w', 'undef', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: xchg
+Category: BASE-DATAXFER
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['al', 'bl', 'cl', 'dl']
+    ['al', 'bl', 'cl', 'dl']
+Implicit operands:
+=====================================
+
+=====================================
+Instruction name: mov
+Category: BASE-DATAXFER
+Control flow: False
+Has memory operand: True
+Has write: False
+Has magic value: False
+Operands:
+    ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi']
+    []
+Implicit operands:
+=====================================
+
+=====================================
+Instruction name: bsf
+Category: BASE-BITBYTE
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['ax', 'bx', 'cx', 'di', 'dx', 'si']
+    ['ax', 'bx', 'cx', 'di', 'dx', 'si']
+Implicit operands:
+    ['undef', 'undef', 'undef', 'w', 'undef', '', '', '', 'undef']
+=====================================
+
+=====================================
+Instruction name: setz
+Category: BASE-SETCC
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['al', 'bl', 'cl', 'dl']
+Implicit operands:
+    ['', '', '', 'r', '', '', '', '', '']
+=====================================
+
+=====================================
+Instruction name: adc
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['al', 'bl', 'cl', 'dl']
+    []
+Implicit operands:
+    ['r/w', 'w', 'w', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: cmovnle
+Category: BASE-CMOV
+Control flow: False
+Has memory operand: True
+Has write: False
+Has magic value: False
+Operands:
+    ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi']
+    []
+Implicit operands:
+    ['', '', '', 'r', 'r', '', '', '', 'r']
+=====================================
+
+=====================================
+Instruction name: add
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['dil', 'sil']
+    []
+Implicit operands:
+    ['w', 'w', 'w', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: jns
+Category: BASE-COND_BR
+Control flow: True
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    []
+Implicit operands:
+    ['rip']
+    ['', '', '', '', 'r', '', '', '', '']
+=====================================
+
+=====================================
+Instruction name: jnp
+Category: BASE-COND_BR
+Control flow: True
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    []
+Implicit operands:
+    ['rip']
+    ['', 'r', '', '', '', '', '', '', '']
+=====================================
+
+=====================================
+Instruction name: idiv
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: True
+Has write: False
+Has magic value: False
+Operands:
+    []
+Implicit operands:
+    ['ax']
+    ['dx']
+    ['undef', 'undef', 'undef', 'undef', 'undef', '', '', '', 'undef']
+=====================================
+
+=====================================
+Instruction name: stc
+Category: BASE-FLAGOP
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+Implicit operands:
+    ['w', '', '', '', '', '', '', '', '']
+=====================================
+
+=====================================
+Instruction name: mov
+Category: BASE-DATAXFER
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi']
+    []
+Implicit operands:
+=====================================
+
+=====================================
+Instruction name: cdq
+Category: BASE-CONVERT
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+Implicit operands:
+    ['edx']
+    ['eax']
+=====================================
+
+=====================================
+Instruction name: xor
+Category: BASE-LOGICAL
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['rax']
+    []
+Implicit operands:
+    ['w', 'w', 'undef', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: add
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['eax']
+    []
+Implicit operands:
+    ['w', 'w', 'w', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: seto
+Category: BASE-SETCC
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['al', 'bl', 'cl', 'dl']
+Implicit operands:
+    ['', '', '', '', '', '', '', '', 'r']
+=====================================
+
+=====================================
+Instruction name: lock and
+Category: BASE-LOGICAL
+Control flow: False
+Has memory operand: True
+Has write: True
+Has magic value: False
+Operands:
+    []
+    ['ax', 'bx', 'cx', 'di', 'dx', 'si']
+Implicit operands:
+    ['w', 'w', 'undef', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: mov
+Category: BASE-DATAXFER
+Control flow: False
+Has memory operand: True
+Has write: False
+Has magic value: False
+Operands:
+    ['al', 'bl', 'cl', 'dl']
+    []
+Implicit operands:
+=====================================
+
+=====================================
+Instruction name: cmp
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: True
+Has write: False
+Has magic value: False
+Operands:
+    []
+    ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi']
+Implicit operands:
+    ['w', 'w', 'w', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: btc
+Category: BASE-BITBYTE
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi']
+    ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi']
+Implicit operands:
+    ['w', 'undef', 'undef', '', 'undef', '', '', '', 'undef']
+=====================================
+
+=====================================
+Instruction name: idiv
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['al', 'bl', 'cl', 'dil', 'dl', 'sil']
+Implicit operands:
+    ['ax']
+    ['undef', 'undef', 'undef', 'undef', 'undef', '', '', '', 'undef']
+=====================================
+
+=====================================
+Instruction name: sub
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi']
+    []
+Implicit operands:
+    ['w', 'w', 'w', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: sub
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: True
+Has write: False
+Has magic value: False
+Operands:
+    ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi']
+    []
+Implicit operands:
+    ['w', 'w', 'w', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: bt
+Category: BASE-BITBYTE
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['ax', 'bx', 'cx', 'di', 'dx', 'si']
+    ['ax', 'bx', 'cx', 'di', 'dx', 'si']
+Implicit operands:
+    ['w', 'undef', 'undef', '', 'undef', '', '', '', 'undef']
+=====================================
+
+=====================================
+Instruction name: xor
+Category: BASE-LOGICAL
+Control flow: False
+Has memory operand: True
+Has write: False
+Has magic value: False
+Operands:
+    ['al', 'bl', 'cl', 'dl']
+    []
+Implicit operands:
+    ['w', 'w', 'undef', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: cmovbe
+Category: BASE-CMOV
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['ax', 'bx', 'cx', 'di', 'dx', 'si']
+    ['ax', 'bx', 'cx', 'di', 'dx', 'si']
+Implicit operands:
+    ['r', '', '', 'r', '', '', '', '', '']
+=====================================
+
+=====================================
+Instruction name: cmp
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['dil', 'sil']
+    []
+Implicit operands:
+    ['w', 'w', 'w', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: setnp
+Category: BASE-SETCC
+Control flow: False
+Has memory operand: True
+Has write: True
+Has magic value: False
+Operands:
+    []
+Implicit operands:
+    ['', 'r', '', '', '', '', '', '', '']
+=====================================
+
+=====================================
+Instruction name: lock sub
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: True
+Has write: True
+Has magic value: False
+Operands:
+    []
+    ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi']
+Implicit operands:
+    ['w', 'w', 'w', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: cmp
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['al', 'bl', 'cl', 'dl']
+    []
+Implicit operands:
+    ['w', 'w', 'w', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: test
+Category: BASE-LOGICAL
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['al', 'bl', 'cl', 'dl']
+    ['al', 'bl', 'cl', 'dl']
+Implicit operands:
+    ['w', 'w', 'undef', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: bswap
+Category: BASE-DATAXFER
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi']
+Implicit operands:
+=====================================
+
+=====================================
+Instruction name: movsx
+Category: BASE-DATAXFER
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi']
+    ['ax', 'bx', 'cx', 'di', 'dx', 'si']
+Implicit operands:
+=====================================
+
+=====================================
+Instruction name: add
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['al', 'bl', 'cl', 'dil', 'dl', 'sil']
+    ['al', 'bl', 'cl', 'dil', 'dl', 'sil']
+Implicit operands:
+    ['w', 'w', 'w', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: and
+Category: BASE-LOGICAL
+Control flow: False
+Has memory operand: True
+Has write: True
+Has magic value: False
+Operands:
+    []
+    ['al', 'bl', 'cl', 'dil', 'dl', 'sil']
+Implicit operands:
+    ['w', 'w', 'undef', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: xchg
+Category: BASE-DATAXFER
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['al', 'bl', 'cl', 'dl']
+    ['al', 'bl', 'cl', 'dl']
+Implicit operands:
+=====================================
+
+=====================================
+Instruction name: mov
+Category: BASE-DATAXFER
+Control flow: False
+Has memory operand: True
+Has write: False
+Has magic value: False
+Operands:
+    ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi']
+    []
+Implicit operands:
+=====================================
+
+=====================================
+Instruction name: bsf
+Category: BASE-BITBYTE
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['ax', 'bx', 'cx', 'di', 'dx', 'si']
+    ['ax', 'bx', 'cx', 'di', 'dx', 'si']
+Implicit operands:
+    ['undef', 'undef', 'undef', 'w', 'undef', '', '', '', 'undef']
+=====================================
+
+=====================================
+Instruction name: setz
+Category: BASE-SETCC
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['al', 'bl', 'cl', 'dl']
+Implicit operands:
+    ['', '', '', 'r', '', '', '', '', '']
+=====================================
+
+=====================================
+Instruction name: adc
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['al', 'bl', 'cl', 'dl']
+    []
+Implicit operands:
+    ['r/w', 'w', 'w', 'w', 'w', '', '', '', 'w']
+=====================================
+
+=====================================
+Instruction name: cmovnle
+Category: BASE-CMOV
+Control flow: False
+Has memory operand: True
+Has write: False
+Has magic value: False
+Operands:
+    ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi']
+    []
+Implicit operands:
+    ['', '', '', 'r', 'r', '', '', '', 'r']
+=====================================
+
+=====================================
+Instruction name: add
+Category: BASE-BINARY
+Control flow: False
+Has memory operand: False
+Has write: False
+Has magic value: False
+Operands:
+    ['dil', 'sil']
+    []
+Implicit operands:
+    ['w', 'w', 'w', 'w', 'w', '', '', '', 'w']
+=====================================
+

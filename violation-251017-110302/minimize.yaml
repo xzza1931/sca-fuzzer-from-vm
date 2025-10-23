@@ -1,0 +1,8 @@
+file: !include common.yaml
+
+contract_observation_clause: ct
+contract_execution_clause:
+  - cond
+
+# Overwrite some of the configuration options to reproduce the violation
+input_gen_seed: 1234567

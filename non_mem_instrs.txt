@@ -1,0 +1,684 @@
+==== 非内存访问指令列表 ====
+
+无法序列化 adc ['dil', 'sil'] [] : name 'json' is not defined
+
+无法序列化 adc ['al', 'bl', 'cl', 'dl'] [] : name 'json' is not defined
+
+无法序列化 adc ['ax', 'bx', 'cx', 'di', 'dx', 'si'] [] : name 'json' is not defined
+
+无法序列化 adc ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] [] : name 'json' is not defined
+
+无法序列化 adc ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] [] : name 'json' is not defined
+
+无法序列化 adc ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 adc ['al', 'bl', 'cl', 'dl'] ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 adc ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 adc ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 adc ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 adc ['al'] [] : name 'json' is not defined
+
+无法序列化 adc ['ax'] [] : name 'json' is not defined
+
+无法序列化 adc ['eax'] [] : name 'json' is not defined
+
+无法序列化 adc ['rax'] [] : name 'json' is not defined
+
+无法序列化 add ['dil', 'sil'] [] : name 'json' is not defined
+
+无法序列化 add ['al', 'bl', 'cl', 'dl'] [] : name 'json' is not defined
+
+无法序列化 add ['ax', 'bx', 'cx', 'di', 'dx', 'si'] [] : name 'json' is not defined
+
+无法序列化 add ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] [] : name 'json' is not defined
+
+无法序列化 add ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] [] : name 'json' is not defined
+
+无法序列化 add ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 add ['al', 'bl', 'cl', 'dl'] ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 add ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 add ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 add ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 add ['al'] [] : name 'json' is not defined
+
+无法序列化 add ['ax'] [] : name 'json' is not defined
+
+无法序列化 add ['eax'] [] : name 'json' is not defined
+
+无法序列化 add ['rax'] [] : name 'json' is not defined
+
+无法序列化 and ['dil', 'sil'] [] : name 'json' is not defined
+
+无法序列化 and ['al', 'bl', 'cl', 'dl'] [] : name 'json' is not defined
+
+无法序列化 and ['ax', 'bx', 'cx', 'di', 'dx', 'si'] [] : name 'json' is not defined
+
+无法序列化 and ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] [] : name 'json' is not defined
+
+无法序列化 and ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] [] : name 'json' is not defined
+
+无法序列化 and ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 and ['al', 'bl', 'cl', 'dl'] ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 and ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 and ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 and ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 and ['al'] [] : name 'json' is not defined
+
+无法序列化 and ['ax'] [] : name 'json' is not defined
+
+无法序列化 and ['eax'] [] : name 'json' is not defined
+
+无法序列化 and ['rax'] [] : name 'json' is not defined
+
+无法序列化 bsf ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 bsf ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 bsf ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 bsr ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 bsr ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 bsr ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 bswap ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 bswap ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 bt ['ax', 'bx', 'cx', 'di', 'dx', 'si'] [] : name 'json' is not defined
+
+无法序列化 bt ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] [] : name 'json' is not defined
+
+无法序列化 bt ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] [] : name 'json' is not defined
+
+无法序列化 bt ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 bt ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 bt ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 btc ['ax', 'bx', 'cx', 'di', 'dx', 'si'] [] : name 'json' is not defined
+
+无法序列化 btc ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] [] : name 'json' is not defined
+
+无法序列化 btc ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] [] : name 'json' is not defined
+
+无法序列化 btc ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 btc ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 btc ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 btr ['ax', 'bx', 'cx', 'di', 'dx', 'si'] [] : name 'json' is not defined
+
+无法序列化 btr ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] [] : name 'json' is not defined
+
+无法序列化 btr ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] [] : name 'json' is not defined
+
+无法序列化 btr ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 btr ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 btr ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 bts ['ax', 'bx', 'cx', 'di', 'dx', 'si'] [] : name 'json' is not defined
+
+无法序列化 bts ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] [] : name 'json' is not defined
+
+无法序列化 bts ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] [] : name 'json' is not defined
+
+无法序列化 bts ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 bts ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 bts ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 cbw : name 'json' is not defined
+
+无法序列化 cdq : name 'json' is not defined
+
+无法序列化 clc : name 'json' is not defined
+
+无法序列化 cld : name 'json' is not defined
+
+无法序列化 cmc : name 'json' is not defined
+
+无法序列化 cmovb ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 cmovb ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 cmovb ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 cmovbe ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 cmovbe ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 cmovbe ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 cmovl ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 cmovl ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 cmovl ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 cmovle ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 cmovle ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 cmovle ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 cmovnb ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 cmovnb ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 cmovnb ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 cmovnbe ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 cmovnbe ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 cmovnbe ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 cmovnl ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 cmovnl ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 cmovnl ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 cmovnle ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 cmovnle ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 cmovnle ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 cmovno ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 cmovno ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 cmovno ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 cmovnp ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 cmovnp ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 cmovnp ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 cmovns ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 cmovns ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 cmovns ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 cmovnz ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 cmovnz ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 cmovnz ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 cmovo ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 cmovo ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 cmovo ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 cmovp ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 cmovp ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 cmovp ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 cmovs ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 cmovs ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 cmovs ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 cmovz ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 cmovz ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 cmovz ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 cmp ['dil', 'sil'] [] : name 'json' is not defined
+
+无法序列化 cmp ['al', 'bl', 'cl', 'dl'] [] : name 'json' is not defined
+
+无法序列化 cmp ['ax', 'bx', 'cx', 'di', 'dx', 'si'] [] : name 'json' is not defined
+
+无法序列化 cmp ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] [] : name 'json' is not defined
+
+无法序列化 cmp ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] [] : name 'json' is not defined
+
+无法序列化 cmp ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 cmp ['al', 'bl', 'cl', 'dl'] ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 cmp ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 cmp ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 cmp ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 cmp ['al'] [] : name 'json' is not defined
+
+无法序列化 cmp ['ax'] [] : name 'json' is not defined
+
+无法序列化 cmp ['eax'] [] : name 'json' is not defined
+
+无法序列化 cmp ['rax'] [] : name 'json' is not defined
+
+无法序列化 cmpxchg ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 cmpxchg ['al', 'bl', 'cl', 'dl'] ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 cmpxchg ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 cmpxchg ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 cmpxchg ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 cwd : name 'json' is not defined
+
+无法序列化 cwde : name 'json' is not defined
+
+无法序列化 dec ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 dec ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 dec ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 dec ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 dec ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 div ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 div ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 div ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 div ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 div ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 idiv ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 idiv ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 idiv ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 idiv ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 idiv ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 imul ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 imul ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 imul ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 imul ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 imul ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 imul ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] [] : name 'json' is not defined
+
+无法序列化 imul ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] [] : name 'json' is not defined
+
+无法序列化 imul ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] [] : name 'json' is not defined
+
+无法序列化 imul ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 imul ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 imul ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 inc ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 inc ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 inc ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 inc ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 inc ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 lahf : name 'json' is not defined
+
+无法序列化 lea ['ax', 'bx', 'cx', 'di', 'dx', 'si'] [] : name 'json' is not defined
+
+无法序列化 lea ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] [] : name 'json' is not defined
+
+无法序列化 lea ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] [] : name 'json' is not defined
+
+无法序列化 mov ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 mov ['al', 'bl', 'cl', 'dl'] ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 mov ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 mov ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 mov ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 mov ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] [] : name 'json' is not defined
+
+无法序列化 mov ['al', 'bl', 'cl', 'dl'] [] : name 'json' is not defined
+
+无法序列化 mov ['ax', 'bx', 'cx', 'di', 'dx', 'si'] [] : name 'json' is not defined
+
+无法序列化 mov ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] [] : name 'json' is not defined
+
+无法序列化 mov ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] [] : name 'json' is not defined
+
+无法序列化 movsx ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 movsx ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 movsx ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 movsx ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 movsx ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 movsx ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 movsx ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 movzx ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 movzx ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 movzx ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 movzx ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 movzx ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 movzx ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 movzx ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 mul ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 mul ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 mul ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 mul ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 mul ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 neg ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 neg ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 neg ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 neg ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 neg ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 nop : name 'json' is not defined
+
+无法序列化 not ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 not ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 not ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 not ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 not ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 or ['dil', 'sil'] [] : name 'json' is not defined
+
+无法序列化 or ['al', 'bl', 'cl', 'dl'] [] : name 'json' is not defined
+
+无法序列化 or ['ax', 'bx', 'cx', 'di', 'dx', 'si'] [] : name 'json' is not defined
+
+无法序列化 or ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] [] : name 'json' is not defined
+
+无法序列化 or ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] [] : name 'json' is not defined
+
+无法序列化 or ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 or ['al', 'bl', 'cl', 'dl'] ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 or ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 or ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 or ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 or ['al'] [] : name 'json' is not defined
+
+无法序列化 or ['ax'] [] : name 'json' is not defined
+
+无法序列化 or ['eax'] [] : name 'json' is not defined
+
+无法序列化 or ['rax'] [] : name 'json' is not defined
+
+无法序列化 sahf : name 'json' is not defined
+
+无法序列化 sbb ['dil', 'sil'] [] : name 'json' is not defined
+
+无法序列化 sbb ['al', 'bl', 'cl', 'dl'] [] : name 'json' is not defined
+
+无法序列化 sbb ['ax', 'bx', 'cx', 'di', 'dx', 'si'] [] : name 'json' is not defined
+
+无法序列化 sbb ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] [] : name 'json' is not defined
+
+无法序列化 sbb ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] [] : name 'json' is not defined
+
+无法序列化 sbb ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 sbb ['al', 'bl', 'cl', 'dl'] ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 sbb ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 sbb ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 sbb ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 sbb ['al'] [] : name 'json' is not defined
+
+无法序列化 sbb ['ax'] [] : name 'json' is not defined
+
+无法序列化 sbb ['eax'] [] : name 'json' is not defined
+
+无法序列化 sbb ['rax'] [] : name 'json' is not defined
+
+无法序列化 setb ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 setb ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 setbe ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 setbe ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 setl ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 setl ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 setle ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 setle ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 setnb ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 setnb ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 setnbe ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 setnbe ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 setnl ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 setnl ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 setnle ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 setnle ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 setno ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 setno ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 setnp ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 setnp ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 setns ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 setns ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 setnz ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 setnz ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 seto ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 seto ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 setp ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 setp ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 sets ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 sets ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 setz ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 setz ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 stc : name 'json' is not defined
+
+无法序列化 std : name 'json' is not defined
+
+无法序列化 sub ['dil', 'sil'] [] : name 'json' is not defined
+
+无法序列化 sub ['al', 'bl', 'cl', 'dl'] [] : name 'json' is not defined
+
+无法序列化 sub ['ax', 'bx', 'cx', 'di', 'dx', 'si'] [] : name 'json' is not defined
+
+无法序列化 sub ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] [] : name 'json' is not defined
+
+无法序列化 sub ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] [] : name 'json' is not defined
+
+无法序列化 sub ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 sub ['al', 'bl', 'cl', 'dl'] ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 sub ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 sub ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 sub ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 sub ['al'] [] : name 'json' is not defined
+
+无法序列化 sub ['ax'] [] : name 'json' is not defined
+
+无法序列化 sub ['eax'] [] : name 'json' is not defined
+
+无法序列化 sub ['rax'] [] : name 'json' is not defined
+
+无法序列化 test ['dil', 'sil'] [] : name 'json' is not defined
+
+无法序列化 test ['al', 'bl', 'cl', 'dl'] [] : name 'json' is not defined
+
+无法序列化 test ['ax', 'bx', 'cx', 'di', 'dx', 'si'] [] : name 'json' is not defined
+
+无法序列化 test ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] [] : name 'json' is not defined
+
+无法序列化 test ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] [] : name 'json' is not defined
+
+无法序列化 test ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 test ['al', 'bl', 'cl', 'dl'] ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 test ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 test ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 test ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 test ['al'] [] : name 'json' is not defined
+
+无法序列化 test ['ax'] [] : name 'json' is not defined
+
+无法序列化 test ['eax'] [] : name 'json' is not defined
+
+无法序列化 test ['rax'] [] : name 'json' is not defined
+
+无法序列化 xadd ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 xadd ['al', 'bl', 'cl', 'dl'] ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 xadd ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 xadd ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 xadd ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 xchg ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 xchg ['al', 'bl', 'cl', 'dl'] ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 xchg ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 xchg ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 xchg ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 xchg ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax'] : name 'json' is not defined
+
+无法序列化 xchg ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax'] : name 'json' is not defined
+
+无法序列化 xchg ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax'] : name 'json' is not defined
+
+无法序列化 xor ['dil', 'sil'] [] : name 'json' is not defined
+
+无法序列化 xor ['al', 'bl', 'cl', 'dl'] [] : name 'json' is not defined
+
+无法序列化 xor ['ax', 'bx', 'cx', 'di', 'dx', 'si'] [] : name 'json' is not defined
+
+无法序列化 xor ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] [] : name 'json' is not defined
+
+无法序列化 xor ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] [] : name 'json' is not defined
+
+无法序列化 xor ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] ['al', 'bl', 'cl', 'dil', 'dl', 'sil'] : name 'json' is not defined
+
+无法序列化 xor ['al', 'bl', 'cl', 'dl'] ['al', 'bl', 'cl', 'dl'] : name 'json' is not defined
+
+无法序列化 xor ['ax', 'bx', 'cx', 'di', 'dx', 'si'] ['ax', 'bx', 'cx', 'di', 'dx', 'si'] : name 'json' is not defined
+
+无法序列化 xor ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] ['eax', 'ebx', 'ecx', 'edi', 'edx', 'esi'] : name 'json' is not defined
+
+无法序列化 xor ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] ['rax', 'rbx', 'rcx', 'rdi', 'rdx', 'rsi'] : name 'json' is not defined
+
+无法序列化 xor ['al'] [] : name 'json' is not defined
+
+无法序列化 xor ['ax'] [] : name 'json' is not defined
+
+无法序列化 xor ['eax'] [] : name 'json' is not defined
+
+无法序列化 xor ['rax'] [] : name 'json' is not defined
+
