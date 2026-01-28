@@ -441,6 +441,135 @@ def main() -> int:
     )
 
     # ==============================================================================================
+    # Fuzzing
+    parser_fuzz = subparsers.add_parser('fuzz-v2', add_help=True, parents=[common_parser])
+    parser_fuzz.add_argument(
+        "-n",
+        "--num-test-cases",
+        type=int,
+        default=1,
+        help="Number of test cases.",
+    )
+    parser_fuzz.add_argument(
+        "-i",
+        "--num-inputs",
+        type=int,
+        default=100,
+        help="Number of inputs per test case.",
+    )
+    parser_fuzz.add_argument(
+        '-w',
+        '--working-directory',
+        type=str,
+        default='.',
+    )
+    parser_fuzz.add_argument(
+        '-t',
+        '--testcase',
+        type=str,
+        default=None,
+        help="Use an existing test case [DEPRECATED - see reproduce]")
+    parser_fuzz.add_argument(
+        '--timeout',
+        type=int,
+        default=0,
+        help="Run fuzzing with a time limit [seconds]. No timeout when set to zero.")
+    parser_fuzz.add_argument(
+        '--nonstop', action='store_true', help="Don't stop after detecting an unexpected result")
+    parser_fuzz.add_argument(
+        '--save-violations',
+        type=arg2bool,
+        default=True,
+        help="If set, store all detected violations in working directory.",
+    )    
+
+    # ==============================================================================================
+    # Fuzzing
+    parser_fuzz = subparsers.add_parser('fuzz-v4', add_help=True, parents=[common_parser])
+    parser_fuzz.add_argument(
+        "-n",
+        "--num-test-cases",
+        type=int,
+        default=1,
+        help="Number of test cases.",
+    )
+    parser_fuzz.add_argument(
+        "-i",
+        "--num-inputs",
+        type=int,
+        default=100,
+        help="Number of inputs per test case.",
+    )
+    parser_fuzz.add_argument(
+        '-w',
+        '--working-directory',
+        type=str,
+        default='.',
+    )
+    parser_fuzz.add_argument(
+        '-t',
+        '--testcase',
+        type=str,
+        default=None,
+        help="Use an existing test case [DEPRECATED - see reproduce]")
+    parser_fuzz.add_argument(
+        '--timeout',
+        type=int,
+        default=0,
+        help="Run fuzzing with a time limit [seconds]. No timeout when set to zero.")
+    parser_fuzz.add_argument(
+        '--nonstop', action='store_true', help="Don't stop after detecting an unexpected result")
+    parser_fuzz.add_argument(
+        '--save-violations',
+        type=arg2bool,
+        default=True,
+        help="If set, store all detected violations in working directory.",
+    )    
+
+    # ==============================================================================================
+    # Fuzzing-early-stop
+    parser_fuzz = subparsers.add_parser('fuzz-es', add_help=True, parents=[common_parser])
+    parser_fuzz.add_argument(
+        "-n",
+        "--num-test-cases",
+        type=int,
+        default=1,
+        help="Number of test cases.",
+    )
+    parser_fuzz.add_argument(
+        "-i",
+        "--num-inputs",
+        type=int,
+        default=100,
+        help="Number of inputs per test case.",
+    )
+    parser_fuzz.add_argument(
+        '-w',
+        '--working-directory',
+        type=str,
+        default='.',
+    )
+    parser_fuzz.add_argument(
+        '-t',
+        '--testcase',
+        type=str,
+        default=None,
+        help="Use an existing test case [DEPRECATED - see reproduce]")
+    parser_fuzz.add_argument(
+        '--timeout',
+        type=int,
+        default=0,
+        help="Run fuzzing with a time limit [seconds]. No timeout when set to zero.")
+    parser_fuzz.add_argument(
+        '--nonstop', action='store_true', help="Don't stop after detecting an unexpected result")
+    parser_fuzz.add_argument(
+        '--save-violations',
+        type=arg2bool,
+        default=True,
+        help="If set, store all detected violations in working directory.",
+    )
+
+    # ==============================================================================================
     # Invocations
     args = parser.parse_args()
 
@@ -559,6 +688,49 @@ def main() -> int:
                                               args.nonstop, args.save_violations)
         else:
             exit_code = fuzzer.start_for_v5(args.num_test_cases, args.num_inputs, args.timeout,
+                                            args.nonstop, args.save_violations)
+        return exit_code
+
+    # fuzz-v2
+    if args.subparser_name == 'fuzz-v2':
+        testcase = args.testcase
+        fuzzer = get_fuzzer(args.instruction_set, args.working_directory, testcase, "")
+        if testcase:
+            # deprecated mode; will be removed soon (duplicates `reproduce`)
+            exit_code = fuzzer.start_from_asm(args.num_test_cases, args.num_inputs, args.timeout,
+                                              args.nonstop, args.save_violations)
+        else:
+            exit_code = fuzzer.start_for_v2(args.num_test_cases, args.num_inputs, args.timeout,
+                                            args.nonstop, args.save_violations)
+        return exit_code
+
+    # fuzz-v4
+    if args.subparser_name == 'fuzz-v4':
+        testcase = args.testcase
+        fuzzer = get_fuzzer(args.instruction_set, args.working_directory, testcase, "")
+        if testcase:
+            # deprecated mode; will be removed soon (duplicates `reproduce`)
+            exit_code = fuzzer.start_from_asm(args.num_test_cases, args.num_inputs, args.timeout,
+                                              args.nonstop, args.save_violations)
+        else:
+            exit_code = fuzzer.start_for_v4(args.num_test_cases, args.num_inputs, args.timeout,
+                                            args.nonstop, args.save_violations)
+        return exit_code
+    
+    # Fuzzing-es
+    if args.subparser_name == 'fuzz-es' or args.subparser_name == 'tfuzz':
+        testcase = args.testcase if args.subparser_name == 'fuzz-es' else args.template
+        #print("\n=================  next to get_fuzzer()  ====================\n")
+        fuzzer = get_fuzzer(args.instruction_set, args.working_directory, testcase, "")
+        if args.subparser_name == 'tfuzz':
+            exit_code = fuzzer.start_from_template(args.num_test_cases, args.num_inputs,
+                                                   args.timeout, args.nonstop, args.save_violations)
+        elif testcase:
+            # deprecated mode; will be removed soon (duplicates `reproduce`)
+            exit_code = fuzzer.start_from_asm_es(args.num_test_cases, args.num_inputs, args.timeout,
+                                              args.nonstop, args.save_violations)
+        else:
+            exit_code = fuzzer.start_for_v1(args.num_test_cases, args.num_inputs, args.timeout,
                                             args.nonstop, args.save_violations)
         return exit_code
 

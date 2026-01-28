@@ -24,6 +24,8 @@ from .config import CONF
 
 import json
 import os
+import copy
+
 
 # ==================================================================================================
 # Generator Interface
@@ -160,7 +162,226 @@ class ConfigurableGenerator(Generator, abc.ABC):
         self.get_elf_data(self.test_case, obj_file)
 
         return self.test_case
+    
+    def create_v1_test_case(self, asm_file: str, disable_assembler: bool = False) -> TestCase:
+        #print("\n=======================  generate.py create_test_case()  ==================")
+        self.test_case = TestCase(self._state)
+        if not asm_file:
+            asm_file = 'generated.asm'
 
+        # set seeds
+        self.update_seed()
+
+        # create actors
+        if len(CONF._actors) != 1:
+            self.LOG.error("Generation of test cases with multiple actors is not yet supported")
+        self.create_actors(self.test_case)
+
+        # create the main function
+        default_actor = self.test_case.actors["main"]
+        func = self.generate_function(".function_0", default_actor, self.test_case)
+
+        # fill the function with instructions
+        self.add_terminators_in_function(func)
+        self.add_instructions_in_function(func)
+
+        # add it to the test case
+        self.test_case.functions.append(func)
+
+        # process the test case
+        for p in self.passes:
+            p.run_on_test_case(self.test_case)
+
+        # add symbols to test case
+        self.add_required_symbols(self.test_case)
+
+        self.printer.print(self.test_case, asm_file)
+        self.test_case.asm_path = asm_file
+
+        if disable_assembler:
+            return self.test_case
+
+        bin_file = asm_file[:-4]
+        obj_file = bin_file + ".o"
+        self.assemble(asm_file, obj_file, bin_file)
+        self.test_case.bin_path = bin_file
+        self.test_case.obj_path = obj_file
+
+        self.get_elf_data(self.test_case, obj_file)
+
+        return self.test_case
+    
+    def create_v2_test_case(self, asm_file: str, disable_assembler: bool = False) -> TestCase:
+        self.test_case = TestCase(self._state)
+        if not asm_file:
+            asm_file = 'v2.asm'
+
+        # set seeds
+        self.update_seed()
+
+        # create actors
+        if len(CONF._actors) != 1:
+            self.LOG.error("Generation of test cases with multiple actors is not yet supported")
+        self.create_actors(self.test_case)
+
+        # create the main function
+        default_actor = self.test_case.actors["main"]
+        # 我不需要生成有向无环图，我要生成三个基本块，基本块之间无需通过label跳转连接
+        func = self.generate_function_for_v2(".function_0", default_actor, self.test_case)
+
+        # fill the function with instructions
+        self.add_instructions_in_v2_function(func)
+
+        # 在第一个基本块的末尾加入必要的指令片段
+        # lea rdx, qword ptr [rip + .bb_0.1]
+        lea_inst = Instruction(
+            name="lea",
+            is_instrumentation=False,
+            category="BASE-MISC",
+            control_flow=False
+        )
+        rdx_op = RegisterOperand("rdx", src=False, dest=True, width=64)
+        lea_inst.add_op(rdx_op)
+        agen_op = AgenOperand("rip + .bb_0.1", 64)
+        lea_inst.add_op(agen_op)
+        func[0].insert_after(func[0].get_last(), lea_inst)
+
+        # lea rsi, qword ptr [rip + .bb_0.2]
+        lea_inst = Instruction(
+            name="lea",
+            is_instrumentation=False,
+            category="BASE-MISC",
+            control_flow=False
+        )
+        rdx_op = RegisterOperand("rsi", src=False, dest=True, width=64)
+        lea_inst.add_op(rdx_op)
+        agen_op = AgenOperand("rip + .bb_0.2", 64)
+        lea_inst.add_op(agen_op)
+        func[0].insert_after(func[0].get_last(), lea_inst)
+
+        # cmovz rsi, rdx
+        cmovz_inst = Instruction(
+            name="cmovz",
+            is_instrumentation=False,
+            category="BASE-CMOV",
+            control_flow=False
+        )
+        cmovz_inst.add_op(RegisterOperand("rsi", src=False, dest=True, width=64))
+        cmovz_inst.add_op(RegisterOperand("rdx", src=True, dest=False, width=64))
+        flags = FlagsOperand(["", "", "", "r", "", "", "", "", ""]) 
+        cmovz_inst.add_op(flags, implicit=True)
+        func[0].insert_after(func[0].get_last(), cmovz_inst)
+
+        # jmp rsi
+        jmp_inst = Instruction(name="jmp", is_instrumentation=False, category="BASE-UNCOND_BR", control_flow=True)
+        rsi_op = RegisterOperand(value="rsi", width=64, src=True, dest=False)
+        rip_op = RegisterOperand(value="rip", width=64, src=False, dest=True)
+        jmp_inst.add_op(rsi_op)
+        jmp_inst.add_op(rip_op, implicit=True)
+        func[0].insert_after(func[0].get_last(), jmp_inst)
+
+        # mov rdx, 0
+        mov_rdx_inst = Instruction(
+            name="mov",
+            is_instrumentation=False,
+            category="BASE-DATAXFER",
+            control_flow=False
+        )
+        mov_rdx_inst.add_op(RegisterOperand("rdx", src=False, dest=True, width=64))
+        mov_rdx_inst.add_op(ImmediateOperand("0", width=32))
+        last_bb = func[-1]
+        last_bb.insert_after(last_bb.get_last(), mov_rdx_inst)
+
+        # mov rsi, 0
+        mov_rsi_inst = Instruction(
+            name="mov",
+            is_instrumentation=False,
+            category="BASE-DATAXFER",
+            control_flow=False
+        )
+        mov_rsi_inst.add_op(RegisterOperand("rsi", src=False, dest=True, width=64))
+        mov_rsi_inst.add_op(ImmediateOperand("0", width=32))
+        last_bb.insert_after(last_bb.get_last(), mov_rsi_inst)
+
+        # add it to the test case
+        self.test_case.functions.append(func)
+
+        # process the test case
+        for p in self.passes:
+            #print("------- Running pass:", p.__class__.__name__, " -------")
+            p.run_on_test_case(self.test_case)
+
+        #self.printer.print(self.test_case, asm_file)
+        #breakpoint()
+        # add symbols to test case
+        self.add_required_symbols(self.test_case)
+
+        self.printer.print(self.test_case, asm_file)
+        self.test_case.asm_path = asm_file
+        #breakpoint()
+        if disable_assembler:
+            return self.test_case
+        
+        bin_file = asm_file[:-4]
+        obj_file = bin_file + ".o"
+        self.assemble(asm_file, obj_file, bin_file)
+        self.test_case.bin_path = bin_file
+        self.test_case.obj_path = obj_file
+
+        self.get_elf_data(self.test_case, obj_file)
+
+        return self.test_case
+
+    def create_v4_test_case(self, asm_file: str, disable_assembler: bool = False) -> TestCase:
+        #print("\n=======================  generate.py create_v4_test_case()  ==================")
+        self.test_case = TestCase(self._state)
+        if not asm_file:
+            asm_file = 'v4.asm'
+
+        # set seeds
+        self.update_seed()
+
+        # create actors
+        if len(CONF._actors) != 1:
+            self.LOG.error("Generation of test cases with multiple actors is not yet supported")
+        self.create_actors(self.test_case)
+
+        # create the main function
+        default_actor = self.test_case.actors["main"]
+        func = self.generate_function(".function_0", default_actor, self.test_case)
+
+        # fill the function with instructions
+        self.add_terminators_in_function(func)
+        self.add_instructions_in_v4_function(func)
+
+        # add it to the test case
+        self.test_case.functions.append(func)
+
+        #self.printer.print(self.test_case, asm_file)
+        #breakpoint()
+        # process the test case
+        for p in self.passes:
+            p.run_on_test_case(self.test_case)
+
+        # add symbols to test case
+        self.add_required_symbols(self.test_case)
+
+        self.printer.print(self.test_case, asm_file)
+        self.test_case.asm_path = asm_file
+
+        if disable_assembler:
+            return self.test_case
+
+        bin_file = asm_file[:-4]
+        obj_file = bin_file + ".o"
+        self.assemble(asm_file, obj_file, bin_file)
+        self.test_case.bin_path = bin_file
+        self.test_case.obj_path = obj_file
+
+        self.get_elf_data(self.test_case, obj_file)
+
+        return self.test_case
+    
     def create_v5_test_case(self, asm_file: str, disable_assembler: bool = False) -> TestCase:
         self.test_case = TestCase(self._state)
         if not asm_file:
@@ -205,10 +426,18 @@ class ConfigurableGenerator(Generator, abc.ABC):
         call_inst.add_op(MemoryOperand("rsp", src=False, dest=True, width=64), implicit=True)
         functions[0][0].insert_after(functions[0][0].get_last(), call_inst)
 
-        print("\n=======================  generate.py create_v5_test_case()  ==================")
+        lfence_inst = Instruction(
+            "lfence",
+            is_instrumentation=False,
+            category="SSE2-MISC",
+            control_flow=False
+        )
+        #functions[0][0].insert_after(functions[0][0].get_last(), lfence_inst)
+
         self.add_instructions_in_v5_function(functions[0],CONF.program_size // 4 )
+
         #第二个函数填充指令
-        self.add_instructions_in_v5_function(functions[1],CONF.program_size // 4 )
+        #self.add_instructions_in_v5_function(functions[1],CONF.program_size // 4 )
         #这里需要插入两条指令
         # lea rdx, qword ptr [rip + .function_2]
         # mov qword ptr [rsp], rdx
@@ -268,11 +497,13 @@ class ConfigurableGenerator(Generator, abc.ABC):
         for i in range(3):
             self.test_case.functions.append(functions[i])
 
-        #self.printer.print(self.test_case, asm_file)
         # process the test case
         for p in self.passes:
+            print("------- Running pass:", p.__class__.__name__, " -------")
             p.run_on_test_case(self.test_case)
 
+        #self.printer.print(self.test_case, asm_file)
+        #breakpoint()
         # add symbols to test case
         self.add_required_symbols(self.test_case)
 
@@ -504,6 +735,18 @@ class ConfigurableGenerator(Generator, abc.ABC):
     def generate_instruction(self, spec: InstructionSpec) -> Instruction:
         pass
 
+    def generate_operand_revizor(self, spec: OperandSpec, parent: Instruction) -> Operand:
+        generators = {
+            OT.REG: self.generate_reg_operand,
+            OT.MEM: self.generate_mem_operand,
+            OT.IMM: self.generate_imm_operand_revizor,
+            OT.LABEL: self.generate_label_operand,
+            OT.AGEN: self.generate_agen_operand,
+            OT.FLAGS: self.generate_flags_operand,
+            OT.COND: self.generate_cond_operand,
+        }
+        return generators[spec.type](spec, parent)
+
     def generate_operand(self, spec: OperandSpec, parent: Instruction) -> Operand:
         generators = {
             OT.REG: self.generate_reg_operand,
@@ -634,8 +877,50 @@ class RandomGenerator(ConfigurableGenerator, abc.ABC):
         func.extend(nodes)
         return func
     
+    def generate_function_for_v2(self, label: str, owner: Actor, parent: TestCase):
+        """ 基本块无需通过条件跳转和非条件跳转来链接，用于v2测试用例生成 """
+        func = Function(label, owner)
+
+        # 设定基本块的后继者的数量
+        if self.instruction_set.has_conditional_branch:
+            max_successors = CONF.max_successors_per_bb if CONF.max_successors_per_bb < 2 else 2
+            min_successors = CONF.min_successors_per_bb if CONF.min_successors_per_bb < 2 else 2
+            assert min_successors <= max_successors, "min_successors_per_bb > max_successors_per_bb"
+        else:
+            max_successors = 1
+            min_successors = 1
+
+        # Create basic blocks
+        if CONF.min_bb_per_function == CONF.max_bb_per_function:
+            node_count = CONF.min_bb_per_function
+        else:
+            node_count = random.randint(CONF.min_bb_per_function, CONF.max_bb_per_function)
+        func_name = label.removeprefix(".function_")
+        nodes = [BasicBlock(f".bb_{func_name}.{i}") for i in range(node_count)]
+
+        # 将基本块添加进function的列表中
+        for i in range(node_count):
+            current_bb = nodes[i]
+
+            # the last node has only one successor - exit
+            if i == node_count - 1:
+                current_bb.successors = [func.exit]
+                break
+
+            # 对于其余基本块的后继暂不处理
+
+        # Function returns are not yet supported
+        # hence all functions end with an unconditional jump to the exit
+        func.exit.terminators = [
+            self.get_unconditional_jump_instruction().add_op(LabelOperand(parent.exit.name))
+        ]
+
+        # Finalize the function
+        func.extend(nodes)
+        return func
+
     def generate_function_without_exitbb(self, label: str, owner: Actor, parent: TestCase): 
-        """ Generates a random DAG of basic blocks within a function """
+        """ 移除每个function指向exit_bb的非条件跳转, 用于v5测试用例生成 """
         func = Function(label, owner)
 
         # Define the maximum allowed number of successors for any BB
@@ -749,6 +1034,29 @@ class RandomGenerator(ConfigurableGenerator, abc.ABC):
         func.extend(nodes)
         return func
 
+    def generate_instruction_revizor(self, spec: InstructionSpec) -> Instruction:
+        '''
+        with open("instruction_spec_log.txt", "a") as spec_file:
+            spec.dump_to_file(spec_file)
+        '''
+        # fill up with random operands, following the spec
+        inst = Instruction.from_spec(spec)
+
+        # generate explicit operands
+        for operand_spec in spec.operands:
+            operand = self.generate_operand_revizor(operand_spec, inst)
+            inst.operands.append(operand)
+
+        # generate implicit operands
+        for operand_spec in spec.implicit_operands:
+            operand = self.generate_operand_revizor(operand_spec, inst)
+            inst.implicit_operands.append(operand)
+        '''
+        with open("instruction_instance_log.txt", "a") as inst_file:
+            inst.dump_to_file(inst_file)
+        '''
+        return inst
+
     def generate_instruction(self, spec: InstructionSpec) -> Instruction:
         '''
         with open("instruction_spec_log.txt", "a") as spec_file:
@@ -790,6 +1098,36 @@ class RandomGenerator(ConfigurableGenerator, abc.ABC):
         else:
             address_reg = random.choice(self.target_desc.registers[64])
         return MemoryOperand(address_reg, spec.width, spec.src, spec.dest)
+    
+    def generate_imm_operand_revizor(self, spec: OperandSpec, _: Instruction) -> Operand:
+        # generate bitmask
+        if spec.values and spec.values[0] == "bitmask":
+            # FIXME: this implementation always returns the same bitmask
+            # make it random
+            value = str(pow(2, spec.width) - 2)
+            return ImmediateOperand(value, spec.width)
+
+        # generate from a predefined range
+        if spec.values:
+            assert "[" in spec.values[0], spec.values
+            range_ = spec.values[0][1:-1].split("-")
+            if range_[0] == "":
+                range_ = range_[1:]
+                range_[0] = "-" + range_[0]
+            assert len(range_) == 2
+            value = str(random.randint(int(range_[0]), int(range_[1])))
+            ImmediateOperand(value, spec.width)
+
+        # generate from width
+        if spec.signed:
+            range_min = pow(2, spec.width - 1) * -1
+            range_max = pow(2, spec.width - 1) - 1
+        else:
+            range_min = 0
+            range_max = pow(2, spec.width) - 1
+        value = str(random.randint(range_min, range_max))
+        return ImmediateOperand(value, spec.width)
+
 
     def generate_imm_operand(self, spec: OperandSpec, _: Instruction) -> Operand:
         # generate bitmask
@@ -927,6 +1265,7 @@ class RandomGenerator(ConfigurableGenerator, abc.ABC):
                 spec = self._pick_random_instruction_spec(non_memory_access_instructions,
                                                           store_instructions, load_instruction,
                                                           n_mem / n_instr)
+                # generate_instruction是概率生成2的幂次优化后的版本
                 inst = self.generate_instruction(spec)
                 if predecessor:
                     bb.insert_after(predecessor, inst)
@@ -958,6 +1297,8 @@ class RandomGenerator(ConfigurableGenerator, abc.ABC):
             elif len(bb.successors) == 2:
                 # Conditional branch
                 spec = random.choice(self.cond_branches)
+                # generate_instruction是概率生成2的幂次优化后的版本
+                # 使用Revizor版本要使用generate_instruction_revizor
                 terminator = self.generate_instruction(spec)
                 label = terminator.get_label_operand()
                 assert label
@@ -972,28 +1313,15 @@ class RandomGenerator(ConfigurableGenerator, abc.ABC):
     def add_instructions_in_function(self, func: Function):
         # evenly fill all BBs with random instructions
         bb_list = func[:]
-        '''
-        def dump_instruction_list(filename, instr_list, title):
-            with open(filename, "w") as f:
-                f.write(f"==== {title} ====\n\n")
-                for instr in instr_list:
-                    try:
-                        data = instr.__dict__  # 把对象的所有字段转成字典
-                        f.write(json.dumps(data, indent=4, ensure_ascii=False))
-                        f.write("\n\n")
-                    except Exception as e:
-                        f.write(f"无法序列化 {instr}: {e}\n\n")
-        dump_instruction_list("non_mem_instrs.txt", self.non_memory_access_instructions, "非内存访问指令列表")
-        dump_instruction_list("store_instrs.txt", self.store_instructions, "存储指令列表")
-        dump_instruction_list("load_instrs.txt", self.load_instruction, "加载指令列表")
-        '''
         for _ in range(0, CONF.program_size):
             bb = random.choice(bb_list)
-            spec = self._pick_random_instruction_spec(self.non_memory_access_instructions,
+            spec, is_store = self._pick_random_instruction_spec(self.non_memory_access_instructions,
                                                       self.store_instructions,
                                                       self.load_instruction,
                                                       CONF.avg_mem_accesses / CONF.program_size)
             #breakpoint()
+            # generate_instruction是概率生成2的幂次优化后的版本
+            # 使用Revizor版本要使用generate_instruction_revizor
             inst = self.generate_instruction(spec)
             bb.insert_after(bb.get_last(), inst)
     
@@ -1001,7 +1329,20 @@ class RandomGenerator(ConfigurableGenerator, abc.ABC):
         bb_list = func[:]
         for bb in bb_list:
             for _ in range(0, size):
-                spec = self._pick_random_instruction_spec(self.non_memory_access_instructions,
+                spec, is_store = self._pick_random_instruction_spec(self.non_memory_access_instructions,
+                                                          self.store_instructions,
+                                                          self.load_instruction,
+                                                          CONF.avg_mem_accesses / CONF.program_size)
+                inst = self.generate_instruction(spec)
+                bb.insert_after(bb.get_last(), inst)
+
+    def add_instructions_in_v2_function(self, func: Function):
+        size_list = [0.5, 0.25, 0.25]  # 分配给3个基本块的指令数占比
+        bb_list = func[:]
+        for i, bb in enumerate(bb_list):
+            size = int(CONF.program_size * size_list[i])
+            for _ in range(0, size):
+                spec, is_store = self._pick_random_instruction_spec(self.non_memory_access_instructions,
                                                           self.store_instructions,
                                                           self.load_instruction,
                                                           CONF.avg_mem_accesses / CONF.program_size)
@@ -1013,11 +1354,12 @@ class RandomGenerator(ConfigurableGenerator, abc.ABC):
                                       non_memory_access_instructions: List,
                                       store_instructions: List,
                                       load_instructions: List,
-                                      memory_access_probability: float = 0.0) -> InstructionSpec:
+                                      memory_access_probability: float = 0.0,
+                                      is_store: bool = False ) -> Tuple[InstructionSpec, bool]:
         # ensure the requested avg. number of mem. accesses
         search_for_memory_access = random.random() < memory_access_probability
         if not search_for_memory_access:
-            return random.choice(non_memory_access_instructions)
+            return random.choice(non_memory_access_instructions), False
 
         if store_instructions:
             search_for_store = random.random() < 0.5  # 50% probability of stores
@@ -1025,10 +1367,197 @@ class RandomGenerator(ConfigurableGenerator, abc.ABC):
             search_for_store = False
 
         if search_for_store:
-            return random.choice(store_instructions)
+            spec = random.choice(store_instructions)
+            return spec, True
 
-        return random.choice(load_instructions)
+        spec = random.choice(load_instructions)
+        return spec, False
     
+    def add_instructions_in_v4_function(self, func: Function):
+        '''插入store之后有概率插入地址相近的load'''
+        # evenly fill all BBs with random instructions
+        bb_list = func[:]
+        is_store = False
+        load_inserted_once = False # 记录本函数是否已经插入过一次load以及lea依赖链（一个用例最多一次）
+
+        for _ in range(0, CONF.program_size):
+            bb = random.choice(bb_list)
+            spec, is_store = self._pick_random_instruction_spec(self.non_memory_access_instructions,
+                                                      self.store_instructions,
+                                                      self.load_instruction,
+                                                      CONF.avg_mem_accesses / CONF.program_size,
+                                                      is_store)
+            #breakpoint()
+            inst = self.generate_instruction(spec)
+            bb.insert_after(bb.get_last(), inst)
+            
+            #print(f"Inserted instruction: {inst.__str__()}")
+            # 如果刚插入的是store指令,则有50%的概率插入地址相近的load指令
+            if is_store and (not load_inserted_once):
+                # 以60%的概率插入地址相近的load
+                if random.random() < 0.6:
+                    print(f"Generated store instruction: {inst.__str__()}")
+                    # load_spec = random.choice(self.load_instruction)
+                    # load_inst = self.generate_instruction(load_spec)
+                    # load指令选取mov reg, [mem]
+                    load_inst = Instruction(
+                        name="mov",
+                        is_instrumentation=False,
+                        category="BASE-DATAXFER",
+                        control_flow=False
+                    )
+                    rdx_op = RegisterOperand("rdx", src=False, dest=True, width=64)
+                    load_inst.add_op(rdx_op)
+
+                    store_mem_op = None
+                    try:
+                        if len(inst.operands) > 0 and isinstance(inst.operands[0], MemoryOperand):
+                            store_mem_op = inst.operands[0]
+                        else:
+                            for op in inst.operands:
+                                if isinstance(op, MemoryOperand):
+                                    store_mem_op = op
+                                    break
+                    except Exception as e:
+                        store_mem_op = None
+                        #print(f"Warning: error while inspecting store operands: {e}")
+
+                    # 深拷贝以避免两个指令共享同一对象
+                    store_mem_op_copy = copy.deepcopy(store_mem_op)
+                    load_inst.add_op(store_mem_op_copy)
+                    self.fix_operand_width(load_inst)
+                    bb.insert_after(bb.get_last(), load_inst)
+                    load_inserted_once = True
+
+                    # 在插入的load之后再插入一条load，将信息带到缓存中
+                    # mov rdx, qword ptr [r14 + rdx]
+                    load_inst_2 = Instruction(
+                        name="mov",
+                        is_instrumentation=False,
+                        category="BASE-DATAXFER",
+                        control_flow=False
+                    )
+                    load_inst_2.add_op(rdx_op)
+                    mem_rdx_op = MemoryOperand("rdx", width=64, src=True, dest=False)
+                    load_inst_2.add_op(mem_rdx_op)
+                    #为了进行第二个消融实验注释掉
+                    bb.insert_after(bb.get_last(), load_inst_2)
+
+
+                    #replaced = False
+                    if store_mem_op_copy is not None:
+                        # 深拷贝以避免两个指令共享同一对象
+                        #store_mem_op_copy = copy.deepcopy(store_mem_op)
+
+                        # 在store之前加入lea依赖链
+                        reg_operand_value = self.extract_register_from_mem_operand(store_mem_op_copy)
+                        if reg_operand_value is not None:
+                            print(f"Extracted register from store memory operand: {reg_operand_value}")
+                            # 构造lea指令
+                            lea_inst = Instruction(
+                                name="lea",
+                                is_instrumentation=False,
+                                category="BASE-MISC",
+                                control_flow=False
+                            )
+                            lea_reg_op = RegisterOperand(
+                                value=reg_operand_value,
+                                width=64,
+                                src=False,
+                                dest=True
+                            )
+                            lea_inst.add_op(lea_reg_op)
+                            # 生成lea指令的agen操作数
+                            addr_expr = f"[{reg_operand_value} + {2 * random.randint(1, 4)}]"
+                            addr_expr_1 = f"[{reg_operand_value} - {2 * random.randint(1, 4)}]"
+                            lea_agen_op = AgenOperand(addr_expr, 64)
+                            lea_inst.add_op(lea_agen_op)
+                            lea_inst_1 = Instruction(
+                                name="lea",
+                                is_instrumentation=False,
+                                category="BASE-MISC",
+                                control_flow=False
+                            )
+                            lea_inst_1.add_op(lea_reg_op)
+                            lea_agen_op_1 = AgenOperand(addr_expr_1, 64)
+                            lea_inst_1.add_op(lea_agen_op_1)
+
+                            for i in range(13):
+                                # 26条lea比较稳定
+                                lea_inst_copy = copy.deepcopy(lea_inst)
+                                lea_inst_1_copy = copy.deepcopy(lea_inst_1)
+                                #为了进行第二个消融实验注释掉
+                                bb.insert_before(inst, lea_inst_copy)
+                                bb.insert_before(inst, lea_inst_1_copy)
+
+                            print(f"Inserted lea instructions: {lea_inst.__str__()} and {lea_inst_1.__str__()}")
+
+                        #self.fix_operand_width(load_inst)
+                        #bb.insert_after(bb.get_last(), load_inst)
+            
+                        #print(f"Inserted load instruction: {load_inst.__str__()}")
+                        #load_inserted_once = True
+
+                    is_store = False
+                
+
+    def extract_register_from_mem_operand(self, mem_op: MemoryOperand) -> str | None:
+        """
+        从内存操作数（如 "[rbx + rax + 4]"）中提取第一个寄存器名。
+        例如返回 "rbx"；若未找到寄存器则返回 None。
+        """
+        match = re.search(r'\b[rR][a-z]{2}\b', mem_op.value)
+        return match.group(0).lower() if match else None
+
+
+    def fix_operand_width(self, inst: Instruction):
+        for op in inst.operands:
+            if isinstance(op, MemoryOperand):
+                reg = next((r for r in inst.operands if isinstance(r, RegisterOperand)), None)
+                if reg is None:
+                    continue
+
+                # 特殊指令：bt 不支持 byte 操作数
+                if inst.name == "bt":
+                    if reg.width >= 64:
+                        op.ptr = 'qword ptr'
+                        op.width = 64
+                    elif reg.width >= 32:
+                        op.ptr = 'dword ptr'
+                        op.width = 32
+                    else:
+                        op.ptr = 'word ptr'
+                        op.width = 16
+                    continue
+
+                # movsx/movzx 特判，防止不被支持的组合
+                if inst.name in ["movsx", "movzx"]:
+                    if reg.width == 64:
+                        op.ptr = 'word ptr'
+                        op.width = 16
+                    elif reg.width == 32:
+                        op.ptr = 'word ptr'
+                        op.width = 16
+                    elif reg.width == 16:
+                        op.ptr = 'byte ptr'
+                        op.width = 8
+                    continue
+
+                # 一般情况
+                if reg.width == 64:
+                    op.ptr = 'qword ptr'
+                    op.width = 64
+                elif reg.width == 32:
+                    op.ptr = 'dword ptr'
+                    op.width = 32
+                elif reg.width == 16:
+                    op.ptr = 'word ptr'
+                    op.width = 16
+                elif reg.width == 8:
+                    op.ptr = 'byte ptr'
+                    op.width = 8
+
+
 
 
     @abc.abstractmethod
@@ -1050,7 +1579,19 @@ class RandomGenerator(ConfigurableGenerator, abc.ABC):
             .add_op(LabelOperand(".noarg"))
         bb_first.insert_before(bb_first.get_first(), instr)
 
+        '''
         bb_last = func_main.exit
+        instr = Instruction("macro", category="MACRO") \
+            .add_op(LabelOperand(".measurement_end")) \
+            .add_op(LabelOperand(".noarg"))
+        bb_last.insert_after(bb_last.get_last(), instr)
+        '''
+        # 注释掉的部分会在第一个function的最后插入measurement_end标记
+        # v5有多个function，这里不适用
+        func_last = test_case.functions[-1]
+        assert func_last.owner == test_case.actors["main"]
+
+        bb_last = func_last.exit
         instr = Instruction("macro", category="MACRO") \
             .add_op(LabelOperand(".measurement_end")) \
             .add_op(LabelOperand(".noarg"))

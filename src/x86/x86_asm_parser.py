@@ -208,7 +208,7 @@ class X86AsmParser(AsmParserGeneric):
             inst.operands.append(op)
 
         for op_spec in spec.implicit_operands:
-            op = self.generator.generate_operand(op_spec, inst)
+            op = self.generator.generate_operand_revizor(op_spec, inst)
             inst.implicit_operands.append(op)
 
         return inst
@@ -220,7 +220,7 @@ class X86AsmParser(AsmParserGeneric):
           also, insert .function_0 at the beginning of the file if it is missing
           also, .test_case_exit must be within the .data.main section and contain a single NOP
         """
-
+        #print("~~~~~~~~~~~~~~~~~~~~~~ Patching assembly file ~~~~~~~~~~~~~~~~~~~~~")
         def is_instruction(line: str) -> bool:
             return line != '' and line[0] != '#' \
                 and (line[0] != '.' or line[:4] == ".bcd"
@@ -292,6 +292,7 @@ class X86AsmParser(AsmParserGeneric):
                             patched.write(".macro.measurement_start:" + macro_placeholder + "\n")
             os.rename(patched_asm_file + ".tmp", patched_asm_file)
 
+        '''
         # add .macro.measurement_end before .test_case_exit
         if not has_measurement_end:
             with open(patched_asm_file, "r") as f:
@@ -305,4 +306,42 @@ class X86AsmParser(AsmParserGeneric):
                             patched.write(".macro.measurement_end:" + macro_placeholder + "\n")
                         patched.write(line)
                         prev_line = line
+            os.rename(patched_asm_file + ".tmp", patched_asm_file)
+        '''
+
+        # 由于v5有多个function标签，所以上面注释掉的代码只会在第一个function的结束位置插入measurement_end
+        # 需要将其改为在最后一个function的结束位置插入measurement_end
+        # --- find all function labels for proper placement ---
+        function_labels = []
+        with open(patched_asm_file, "r") as f:
+            for line in f:
+                line_l = line.strip().lower()
+                if line_l.startswith(".function_"):
+                    function_labels.append(line_l.split(":")[0])
+
+        last_function_label = function_labels[-1] if function_labels else None
+        #print("Last function label:", last_function_label)
+
+        # --- add .macro.measurement_end only after the last function ---
+        if not has_measurement_end and last_function_label:
+            with open(patched_asm_file, "r") as f:
+                with open(patched_asm_file + ".tmp", "w") as patched:
+                    inside_last_function = False
+                    prev_line = ""
+                    for line in f:
+                        line_l = line.strip().lower()
+
+                        # Detect entry into last function
+                        if line_l.startswith(last_function_label):
+                            inside_last_function = True
+
+                        # Before test_case_exit: if we are in the last function, insert measurement_end
+                        if line_l.startswith(".test_case_exit:") and inside_last_function:
+                            if prev_line.startswith(".section"):
+                                patched.write(".function_end:\n")
+                            patched.write(".macro.measurement_end:" + macro_placeholder + "\n")
+
+                        patched.write(line)
+                        prev_line = line_l
+
             os.rename(patched_asm_file + ".tmp", patched_asm_file)

@@ -112,6 +112,15 @@ class FuzzerGeneric(Fuzzer):
         print("\n============ fuzzer.py  start_random()  return come soon  ==========================")
         return self._start(num_test_cases, num_inputs, timeout, nonstop, save_violations)
     
+    def start_for_v1(self, num_test_cases: int, num_inputs: int, timeout: int, nonstop: bool,
+                     save_violations: bool) -> bool:
+        print("\n================================ fuzzer.py  start_random()==========================")
+        self.initialize_modules()#这一行会调用 X86Generator  init 以及 RandomGenerator  init
+        #print("\n============ fuzzer.py  start_random()  initialize_modules() end  ==========================")
+        self.generation_function = self.generator.create_v1_test_case  #这里只是赋值操作，不会执行create函数
+        print("\n============ fuzzer.py  start_random()  return come soon  ==========================")
+        return self._start_es(num_test_cases, num_inputs, timeout, nonstop, save_violations)
+    
     def start_for_mutate(self, num_test_cases: int, num_inputs: int, timeout: int, nonstop: bool, 
                      save_violations: bool) -> bool:
         print("\n================================ fuzzer.py  start_for_mutate()==========================")
@@ -119,6 +128,20 @@ class FuzzerGeneric(Fuzzer):
         self.generation_function = self.generator.mutate_for_discarded_test_case
         return self._start(num_test_cases, num_inputs, timeout, nonstop, save_violations)
     
+    def start_for_v2(self, num_test_cases: int, num_inputs: int, timeout: int, nonstop: bool, 
+                     save_violations: bool) -> bool:
+        print("\n================================ fuzzer.py  start_for_v2()==========================")
+        self.initialize_modules()#这一行会调用 X86Generator  init 以及 RandomGenerator  init
+        self.generation_function = self.generator.create_v2_test_case
+        return self._start_es(num_test_cases, num_inputs, timeout, nonstop, save_violations)    
+
+    def start_for_v4(self, num_test_cases: int, num_inputs: int, timeout: int, nonstop: bool, 
+                     save_violations: bool) -> bool:
+        print("\n================================ fuzzer.py  start_for_v4()==========================")
+        self.initialize_modules()#这一行会调用 X86Generator  init 以及 RandomGenerator  init
+        self.generation_function = self.generator.create_v4_test_case
+        return self._start_es(num_test_cases, num_inputs, timeout, nonstop, save_violations)
+
     def start_for_v5(self, num_test_cases: int, num_inputs: int, timeout: int, nonstop: bool, 
                      save_violations: bool) -> bool:
         print("\n================================ fuzzer.py  start_for_v5()==========================")
@@ -139,6 +162,13 @@ class FuzzerGeneric(Fuzzer):
         self.initialize_modules()
         self.generation_function = self.asm_parser.parse_file
         return self._start(num_test_cases, num_inputs, timeout, nonstop, save_violations)
+    
+    def start_from_asm_es(self, num_test_cases: int, num_inputs: int, timeout: int, nonstop: bool,
+                       save_violations: bool) -> bool:
+        #print("\n================================ fuzzer.py  start_from_asm_es()==========================")
+        self.initialize_modules()
+        self.generation_function = self.asm_parser.parse_file
+        return self._start_es(num_test_cases, num_inputs, timeout, nonstop, save_violations)
 
     def _start(self, num_test_cases: int, num_inputs: int, timeout: int, nonstop: bool,
                save_violations: bool) -> bool:
@@ -179,6 +209,57 @@ class FuzzerGeneric(Fuzzer):
             if violation:
                 self.LOG.fuzzer_report_violations(violation, self.model)
                 if save_violations:
+                    self._store_violation_artifact(test_case, violation, self.work_dir)
+                    #print("============ store_violation_artifact  come soon ==================\n")
+                STAT.violations += 1
+                if not nonstop:
+                    break
+
+        self.LOG.fuzzer_finish()
+        self.LOG.dbg_report_coverage(self.model)
+        return STAT.violations > 0
+
+    def _start_es(self, num_test_cases: int, num_inputs: int, timeout: int, nonstop: bool,
+               save_violations: bool) -> bool:
+        start_time = datetime.today()
+        self.LOG.fuzzer_start(num_test_cases, start_time)
+
+        for i in range(num_test_cases):
+            self.LOG.fuzzer_start_round(i)
+
+            # terminate the fuzzer if the timeout has expired
+            if timeout:
+                now = datetime.today()
+                if (now - start_time).total_seconds() > timeout:
+                    self.LOG.fuzzer_timeout()
+                    break
+
+            # Generate a test case
+            test_case: TestCase = self.generation_function(self.existing_test_case)
+            self.input_gen.n_actors = len(test_case.actors)
+            STAT.test_cases += 1
+
+            # Prepare inputs
+            inputs: List[Input]
+            if self.input_paths:
+                print("Loading inputs from paths...")
+                inputs = self.input_gen.load(self.input_paths)
+            else:
+                inputs = self.input_gen.generate(num_inputs)
+            STAT.num_inputs += len(inputs) * CONF.inputs_per_class
+
+            # Check if the test case is useful
+            if self.filter(test_case, inputs):
+                continue
+
+            # Fuzz the test case
+            print("============ FuzzerGeneric _start_es() call fuzzing_round_early_stop() ===========\n")
+            violation = self.fuzzing_round_early_stop(test_case, inputs)
+
+            if violation:
+                self.LOG.fuzzer_report_violations(violation, self.model)
+                if save_violations:
+                    #print("============ store_violation_artifact  come soon ==================\n")
                     self._store_violation_artifact(test_case, violation, self.work_dir)
                 STAT.violations += 1
                 if not nonstop:
@@ -305,6 +386,7 @@ class FuzzerGeneric(Fuzzer):
             args.n_reps -= len(htraces[0].raw)  # subtract the number of repetitions already done
             args.added_htraces = htraces
 
+
             violations, _, htraces = self._collect_traces(args)
             if not violations:
                 STAT.fp_large_sample += 1
@@ -334,6 +416,231 @@ class FuzzerGeneric(Fuzzer):
         self.LOG.trc_fuzzer_dump_traces(self.model, args.inputs, htraces, self.reference_htraces,
                                         args.ctraces, end_nesting)
         return violations[0]
+
+    def fuzzing_round_early_stop(self,
+                      test_case: TestCase,
+                      inputs: List[Input],
+                      ignore_list: List[int] = []) -> Optional[Violation]:
+        """
+        在硬件噪声处理部分做了早停处理
+        Run a single fuzzing round: collect contract and hardware traces for the given test
+        case and inputs, and check for contract violations.
+
+        The function implements a multi-stage approach to testing, with the first measurement being
+        fast but with a chance of false positives, and the later stages filtering out various
+        types of potential false positives. The exact number of stages depends on
+        the configuration.
+
+        :param test_case: the test case to be executed
+        :param inputs: the inputs to be tested
+        :param ignore_list: a list of input IDs to be ignored by the executor
+        :return: the first detected violation or None if no violations were found
+        """
+        print("============ FuzzerGeneric fuzzing_round() ===========\n")
+        # Common variables
+        htraces: List[HTrace] = []
+        violations: List[Violation] = []
+
+        # Define the starting parameters for the current configuration
+        n_reps: int = CONF.executor_sample_sizes[0]
+        start_nesting: int = CONF.model_min_nesting if self.model.is_speculative_contract else 1
+        end_nesting: int = CONF.model_max_nesting if self.model.is_speculative_contract else 1
+        assert start_nesting <= end_nesting
+
+        # Create the tracing arguments
+        args = TracingArguments(
+            inputs=inputs,
+            n_reps=n_reps,
+            model_nesting=start_nesting,
+            ctraces=[],
+            record_stats=True,
+            fast_boosting=CONF.enable_fast_path_model,
+            update_ignore_list=True,
+            reuse_ctraces=False,
+            added_htraces=[])
+
+        # 0. Load the test case into the model and executor
+        self.model.load_test_case(test_case)
+        self.executor.load_test_case(test_case)
+        if ignore_list:
+            self.executor.set_ignore_list(ignore_list)
+
+        # 1. Fast path: Collect traces with minimal nesting and repetitions
+        args.inputs, args.ctraces = self._boost_inputs(inputs, start_nesting)
+        violations, args.ctraces, htraces = self._collect_traces(args)
+        if not violations:
+            STAT.fast_path += 1
+            return None
+        self.reference_htraces = htraces  # we use the fast path traces as a reference
+        args.record_stats = False  # we record stats only in the fast path
+
+        # 2. Slow path: Go through potential sources of false violations in the fast path,
+        #    and check them one at a time, starting with the most likely ones
+        self.LOG.fuzzer_slow_path()
+
+        # 2.1 FP might appear because the model did not go deep enough into nested speculation.
+        #     To remove such FPs, we re-run the model tracing with max nesting. As taints depend on
+        #     contract traces, we also have to re-boost the inputs, and re-collect hardware traces
+        #     for the new inputs
+        if start_nesting != end_nesting:
+            args.model_nesting = end_nesting
+            args.inputs, args.ctraces = self._boost_inputs(inputs, end_nesting)
+            violations, args.ctraces, htraces = self._collect_traces(args)
+            if not violations:
+                STAT.fp_nesting += 1
+                return None
+
+        # 2.2 FP might appear because of imperfect tainting (e.g., due to a bug in taint tracker).
+        #     To remove such FPs, we collect contract traces for all boosted inputs, and check if
+        #     the violation is still present
+        if CONF.enable_fast_path_model:
+            args.fast_boosting = False
+
+            full_ctraces = self.model.trace_test_case(args.inputs, end_nesting)
+            if full_ctraces != args.ctraces:
+                # notify the user about the mismatch
+                self.LOG.warning("fuzzer", "Fast path contract traces do not match the full traces")
+                if self.work_dir and not CONF._no_generation:
+                    self.LOG.warning("fuzzer", f"Storing the bug into {self.work_dir}/bugs/")
+                    self._store_violation_artifact(test_case, violations[0],
+                                                   f"{self.work_dir}/bugs/")
+
+                # re-run the experiment with the full contract traces
+                violations, args.ctraces, _ = self._collect_traces(args)
+                if not violations:
+                    STAT.fp_taint_mistakes += 1
+                    return None
+
+        # At this point, we can be confident in contract traces, so we can start reusing them
+        args.reuse_ctraces = True
+
+        # 2.3 FP might appear because of interference between inputs. To remove such FPs, we
+        #     use the priming test where we swap inputs that caused the violation with each other
+        if CONF.enable_priming:
+            violations = self._priming(violations, args.inputs)
+            if not violations:
+                STAT.fp_early_priming += 1
+                self.LOG.trc_fuzzer_dump_traces(self.model, args.inputs, htraces,
+                                                self.reference_htraces, args.ctraces, end_nesting)
+                return None
+
+        BATCH_SIZE = 50  # 每个批次的重复次数
+        MIN_BATCHES = 1  # 最小批次数，只有大于最小批次数之后才能判定能否早停
+        MODE_RATIO_THRESHOLD = 0.8  # 阈值比例
+
+        # 2.4 FP might appear because we experienced noise. Retry the experiment with a larger
+        #     sample size to reduce the impact of noise
+        for n_reps in CONF.executor_sample_sizes[1:]:
+            self.LOG.fuzzer_sample_size_increase(n_reps)
+
+            # 计算当前阶段还需的重复次数（保持原代码中的 subtract 逻辑）
+            remaining = int(n_reps) - len(htraces[0].raw)
+            if remaining <= 0:
+                # 已经达到或超过该阶段要求，跳过到下一个样本规模
+                continue
+
+            args.added_htraces = htraces
+
+            # 用于聚合当前阶段的轨迹（保留原 htraces 中已有的）
+            aggregated_htraces = list(htraces)  # shallow copy; elements are htrace objects
+            batches_done = 0
+            stage_violations = None
+
+            # 每次调用 _collect_traces 采集一批（this_batch）测量
+            while remaining > 0:
+                this_batch = min(BATCH_SIZE, remaining)
+                args.n_reps = this_batch
+
+                batch_violations, _, batch_htraces = self._collect_traces(args)
+
+                # 如果本批次毫无轨迹（或 _collect_traces 返回 None 之类的异常情况），
+                # 保持与原逻辑一致：把 fp_large_sample 加 1 并退出
+                # （原代码是在整阶段后检测 violations 为 None 决定 fp_large_sample）
+                if batch_htraces is None or len(batch_htraces) == 0:
+                    print("Batch htraces is None or empty, exiting early.\n")
+                    STAT.fp_large_sample += 1
+                    return None
+                
+                # 合并本批轨迹
+                aggregated_htraces.extend(batch_htraces)
+                batches_done += 1
+                remaining -= this_batch
+
+                # 若本批检测到 violations，累积到 stage_violations
+                # stage_violations包含这一阶段（也就是这一个n_reps）所有批次检测到的违规
+                if batch_violations:
+                    # stage_violations 可以是一个列表或集合，根据原实现的类型决定
+                    if stage_violations is None:
+                        stage_violations = list(batch_violations)
+                    else:
+                        # 合并：避免重复添加相同 violation（按需实现去重）
+                        stage_violations.extend(batch_violations)
+                    
+                # 计算稳定性指标
+                counts = {}
+                for ht in aggregated_htraces:
+                    # 按具体类型调整 key 的生成方式；这里使用 tuple(ht.raw)
+                    try:
+                        key = tuple(ht.raw)
+                    except Exception:
+                        # 退路：把 raw 转为字符串（较慢但安全）
+                        key = str(ht.raw)
+                    counts[key] = counts.get(key, 0) + 1
+
+                most_common_count = max(counts.values())
+                total_count = sum(counts.values())
+                mode_ratio = most_common_count / total_count if total_count > 0 else 0.0
+
+                # --- 启发式早停判定 ---
+                # 只有在达到最少批次数后才允许早停，避免过早结束
+                if batches_done > MIN_BATCHES and mode_ratio >= MODE_RATIO_THRESHOLD:
+                    # 把聚合的轨迹写回 htraces，以便后续 priming/日志/复现使用
+                    htraces = aggregated_htraces
+                    violations = stage_violations
+                    break  # 退出当前 sample-size 阶段（进入 priming 验证等）
+                # 否则继续下一批，或在 while 结束后（耗尽 remaining）按原逻辑处理
+
+            # 如果 exhausted current stage 的采样后没有得到任何 violaitons（与原逻辑相匹配）
+            # 注意：这里我们保留原来的判断：若最终未发现 violations，则判定 fp_large_sample
+            if stage_violations is None or len(stage_violations) == 0:
+                STAT.fp_large_sample += 1
+                return None
+
+            """
+            args.n_reps = n_reps
+            args.n_reps -= len(htraces[0].raw)  # subtract the number of repetitions already done
+            args.added_htraces = htraces
+
+            violations, _, htraces = self._collect_traces(args)
+            if not violations:
+                STAT.fp_large_sample += 1
+                return None
+            """
+            # 2.4.2 Priming might have failed because the sample size was too small, causing
+            #     non-deterministic results. Retry the priming test with the largest sample size
+            if CONF.enable_priming:
+                violations = self._priming(violations, args.inputs)
+                if not violations:
+                    STAT.fp_priming += 1
+                    self.LOG.trc_fuzzer_dump_traces(self.model, args.inputs, htraces,
+                                                    self.reference_htraces, args.ctraces,
+                                                    end_nesting)
+                    return None
+
+        # 2.5 FP might appear because of a mismatch between the model and the executor.
+        # Such cases are rare, hence we check for them last.
+        # To remove such FPs, we check if the violation is caused by an architectural mismatch
+        if self.is_architectural_mismatch(test_case, violations[0]):
+            if self.work_dir and not CONF._no_generation:
+                self.LOG.warning("fuzzer", f"Storing the bug into {self.work_dir}/bugs/")
+                self._store_violation_artifact(test_case, violations[0], f"{self.work_dir}/bugs/")
+            return None
+
+        # Violation survived all checks. Report it
+        self.LOG.trc_fuzzer_dump_traces(self.model, args.inputs, htraces, self.reference_htraces,
+                                        args.ctraces, end_nesting)
+        return violations[0]
+
 
     def _collect_traces(
             self, args: TracingArguments) -> Tuple[List[Violation], List[CTrace], List[HTrace]]:

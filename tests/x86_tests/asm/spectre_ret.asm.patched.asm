@@ -4,10 +4,11 @@
 
 # speculative offset:
 # these shifts generate a random page offset, 64-bit aligned
-
-
 .function_0:
 .macro.measurement_start: nop qword ptr [rax + 0xff]
+and rax, 0b111111000000
+lfence
+
 mov rcx, r14
 add rsp, 8  # ensure that the call and ret use the first cache set
 
@@ -36,3 +37,4 @@ mov rdx, 0
 .function_end:
 .macro.measurement_end: nop qword ptr [rax + 0xff]
 .test_case_exit:nop
+

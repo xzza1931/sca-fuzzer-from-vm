@@ -2,75 +2,56 @@
 .test_case_enter:
 .section .data.main
 
-# reduce the entropy of rax
+# the leaked value - rcx
+# construct a page offset in the range [0x200; 0x900]
 .function_0:
 .macro.measurement_start: nop qword ptr [rax + 0xff]
-and rax, 0b111111000000
+and rcx, 0b11100000000
+add rcx, 0x200
 
-# prepare jump targets
-lea rdx, qword ptr [rip + .l2]
-lea rsi, qword ptr [rip + .l1]
-
-# delay the jump
-lea rbx, qword ptr [rbx + rax + 1]
-lea rbx, qword ptr [rbx + rax - 1]
-lea rbx, qword ptr [rbx + rax + 1]
-lea rbx, qword ptr [rbx + rax - 1]
-lea rbx, qword ptr [rbx + rax + 1]
-lea rbx, qword ptr [rbx + rax - 1]
-lea rbx, qword ptr [rbx + rax + 1]
-lea rbx, qword ptr [rbx + rax - 1]
-lea rbx, qword ptr [rbx + rax + 1]
-lea rbx, qword ptr [rbx + rax - 1]
-lea rbx, qword ptr [rbx + rax + 1]
-lea rbx, qword ptr [rbx + rax - 1]
-lea rbx, qword ptr [rbx + rax + 1]
-lea rbx, qword ptr [rbx + rax - 1]
-lea rbx, qword ptr [rbx + rax + 1]
-lea rbx, qword ptr [rbx + rax - 1]
-lea rbx, qword ptr [rbx + rax + 1]
-lea rbx, qword ptr [rbx + rax - 1]
-lea rbx, qword ptr [rbx + rax + 1]
-lea rbx, qword ptr [rbx + rax - 1]
-lea rbx, qword ptr [rbx + rax + 1]
-lea rbx, qword ptr [rbx + rax - 1]
-lea rbx, qword ptr [rbx + rax + 1]
-lea rbx, qword ptr [rbx + rax - 1]
-lea rbx, qword ptr [rbx + rax + 1]
-lea rbx, qword ptr [rbx + rax - 1]
-lea rbx, qword ptr [rbx + rax + 1]
-lea rbx, qword ptr [rbx + rax - 1]
-lea rbx, qword ptr [rbx + rax + 1]
-lea rbx, qword ptr [rbx + rax - 1]
-lea rbx, qword ptr [rbx + rax + 1]
-lea rbx, qword ptr [rbx + rax - 1]
-lea rbx, qword ptr [rbx + rax + 1]
-lea rbx, qword ptr [rbx + rax - 1]
-lea rbx, qword ptr [rbx + rax + 1]
-lea rbx, qword ptr [rbx + rax - 1]
-lea rbx, qword ptr [rbx + rax + 1]
-lea rbx, qword ptr [rbx + rax - 1]
-lea rbx, qword ptr [rbx + rax + 1]
-lea rbx, qword ptr [rbx + rax - 1]
-
-# reduce the entropy in rbx
-and rbx, 0b1000000
-
-# select a target based on the random value in rbx
-cmp rbx, 0
-# cmove rsi, rdx
-
-jmp rsi   # misprediction
-.l1:
-# rbx = 0
-mov rdx, qword ptr [r14 + rax]
-.l2:
-# mov rdx, qword ptr [r14 + rax]
+# save the offset into the offset 0
+mov qword ptr [r14], rcx
 mfence
 
-# override the targets to avoid failing the arch. check
-mov rdx, 0
-mov rsi, 0
+# create a delay on rbx
+mov rax, 0
+lea rbx, qword ptr [rbx + rax + 1]
+lea rbx, qword ptr [rbx + rax - 1]
+lea rbx, qword ptr [rbx + rax + 1]
+lea rbx, qword ptr [rbx + rax - 1]
+lea rbx, qword ptr [rbx + rax + 1]
+lea rbx, qword ptr [rbx + rax - 1]
+lea rbx, qword ptr [rbx + rax + 1]
+lea rbx, qword ptr [rbx + rax - 1]
+lea rbx, qword ptr [rbx + rax + 1]
+lea rbx, qword ptr [rbx + rax - 1]
+lea rbx, qword ptr [rbx + rax + 1]
+lea rbx, qword ptr [rbx + rax - 1]
+lea rbx, qword ptr [rbx + rax + 1]
+lea rbx, qword ptr [rbx + rax - 1]
+lea rbx, qword ptr [rbx + rax + 1]
+lea rbx, qword ptr [rbx + rax - 1]
+lea rbx, qword ptr [rbx + rax + 1]
+lea rbx, qword ptr [rbx + rax - 1]
+lea rbx, qword ptr [rbx + rax + 1]
+lea rbx, qword ptr [rbx + rax - 1]
+lea rbx, qword ptr [rbx + rax + 1]
+lea rbx, qword ptr [rbx + rax - 1]
+lea rbx, qword ptr [rbx + rax + 1]
+lea rbx, qword ptr [rbx + rax - 1]
+lea rbx, qword ptr [rbx + rax + 1]
+lea rbx, qword ptr [rbx + rax - 1]
+
+
+# store and load, potentially matching
+and rbx, 0b111000000
+mov qword ptr [r14 + rbx], 0x100  # store offset 0x100
+mov rdx, qword ptr [r14]  # load the offset; misprediction happens here
+
+# dependent load with the offset
+and rdx, 0b111111000000
+mov rdx, qword ptr [r14 + rdx]
+mfence
 
 .section .data.main
 .function_end:

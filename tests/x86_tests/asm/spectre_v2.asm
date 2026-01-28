@@ -63,6 +63,7 @@ jmp rsi   # misprediction
     # rbx = 0
     mov rdx, qword ptr [r14 + rax]
 .l2:
+    # mov rdx, qword ptr [r14 + rax]
 mfence
 
 # override the targets to avoid failing the arch. check

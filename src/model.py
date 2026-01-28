@@ -721,6 +721,7 @@ class UnicornSeq(UnicornModel):
 
     def handle_fault(self, errno: int) -> int:
         self.LOG.dbg_model_exception(errno, self.err_to_str(errno))
+        print(f"[MODEL EXEC] Executing instruction FAULT: {str(self.current_instruction)}")
 
         # when a fault is triggered, CPU stores the PC and the fault type
         # on stack - this has to be mirrored at the contract level

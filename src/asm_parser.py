@@ -116,10 +116,12 @@ class AsmParserGeneric(AsmParser):
                     # print(f"    {line}")
                     inst = self.parse_line(line.clean_str, line.line_num, self.instruction_map)
                     inst.line_num = line.line_num
-                    if inst.control_flow and not self.target_desc.is_call(inst):
+                    #print(inst.name, [op.value for op in inst.operands])
+                    if inst.control_flow and not self.target_desc.is_call(inst) and inst.name not in ["ret", "retq"]:
                         terminators_started = True
                         bb.insert_terminator(inst)
                     else:
+                        #print(inst.name, [op.value for op in inst.operands])
                         parser_assert(not terminators_started, line.line_num,
                                       "Terminator not at the end of BB")
                         bb.insert_after(bb.get_last(), inst)
@@ -167,6 +169,28 @@ class AsmParserGeneric(AsmParser):
         test_case.bin_path = bin_file
         test_case.obj_path = obj_file
 
+        '''
+        # ========== 输出解析后的 test_case 到文件 ==========
+        output_path = "parse_test_case.asm"
+        with open(output_path, "w") as out_f:
+            for func in test_case.functions:
+                out_f.write(f"\n; ===== Function: {func.name} =====\n")
+                for bb in func:
+                    out_f.write(f"\n; Basic Block: {bb.name}\n")
+                    for instr in bb:
+                        out_f.write(f"{instr}\n")
+                    if bb.terminators:
+                        out_f.write("; Terminators:\n")
+                        for term in bb.terminators:
+                            out_f.write(f"{term}\n")
+
+            # 输出 exit 块
+            out_f.write("\n; ===== Test Case Exit =====\n")
+            for instr in test_case.exit:
+                out_f.write(f"{instr}\n")
+
+        print(f"[parse_file] Parsed test case written to {output_path}")
+        '''
         self.generator.get_elf_data(test_case, obj_file)
 
         return test_case

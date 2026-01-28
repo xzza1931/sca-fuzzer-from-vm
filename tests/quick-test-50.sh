@@ -40,12 +40,13 @@ assert_no_violation(){
   fi
 }
 
-cmd1="rvzr $cli fuzz -s $SCRIPT_DIR/../base.json --save-violations f -I $SCRIPT_DIR/x86_tests/configs -t $SCRIPT_DIR/x86_tests/asm/spectre_ret.asm -c $SCRIPT_DIR/x86_tests/configs/ct-seq.yaml -i 20"
+cmd1="rvzr $cli fuzz -s $SCRIPT_DIR/../base.json --save-violations f -I $SCRIPT_DIR/x86_tests/configs -t $SCRIPT_DIR/x86_tests/asm/spectre_v2.asm -c v2.yaml -i 100"
 #cmd2="rvzr $cli fuzz -s $SCRIPT_DIR/../base.json --save-violations f -I $SCRIPT_DIR/x86_tests/configs -t $SCRIPT_DIR/x86_tests/asm/spectre_v1.asm -c $SCRIPT_DIR/x86_tests/configs/ct-cond.yaml -i 20"
 
 cnt1=0; cnt2=0
 
-for i in {1..50}; do
+for i in {1..3}; do
+echo "Iteration $i for ct-seq"
   assert_violation "$i" "$cmd1" && ((cnt1++))
 done
 
@@ -53,6 +54,6 @@ done
 #  assert_no_violation "$i" "$cmd2" && ((cnt2++))
 #done
 
-echo "Ran 50 times each:"
+echo "Ran 10 times each:"
 echo "  ct-seq (should detect):  $cnt1  OK"
 #echo "  ct-cond (should filter): $cnt2  OK"

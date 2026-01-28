@@ -86,6 +86,7 @@ def quick_and_dirty_mode(executor: X86Executor) -> Generator[None, None, None]:
 
 
 def create_fenced_test_case(test_case: TestCase, fenced_name: str, asm_parser) -> TestCase:
+    #print("============= X86Fuzzer.py create_fenced_test_case() ==============\n ")
     with open(test_case.asm_path, 'r') as f:
         with open(fenced_name, 'w') as fenced_asm:
             started = False
@@ -195,7 +196,9 @@ class X86Fuzzer(FuzzerGeneric):
             # for this create a fenced version of the test case and collect traces for it
             if CONF.enable_observation_filter:
                 fenced = tempfile.NamedTemporaryFile(delete=False)
+                #print("Creating fenced test case at:", fenced.name)
                 fenced_test_case = create_fenced_test_case(test_case, fenced.name, self.asm_parser)
+                #print("Fenced test case created.")
                 try:
                     self.executor.load_test_case(fenced_test_case)
                     fenced_htraces = self.executor.trace_test_case(inputs, reps)
@@ -269,6 +272,7 @@ class X86ArchDiffFuzzer(FuzzerGeneric):
                       test_case: TestCase,
                       inputs: List[Input],
                       _: List[int] = []) -> Optional[Violation]:
+        print
         with quick_and_dirty_mode(self.executor):
             # collect non-fenced traces
             self.arch_executor.load_test_case(test_case)

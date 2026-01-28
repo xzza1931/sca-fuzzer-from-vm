@@ -17,3 +17,12 @@ src/x86/executor/measurement.o.ur-safe
 dbg/
 site
 dist/
+
+# 工作目录和测试输出
+wd-*/
+violation-*/
+parse_test_case.asm
+minimized.asm
+mutated.asm
+*.der
+*.priv

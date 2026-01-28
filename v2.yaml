@@ -1,3 +1,4 @@
+# v2.yaml
 
 # common.yaml
 input_gen_entropy_bits: 24
@@ -18,7 +19,7 @@ instruction_categories:
 - BASE-BINARY
 - BASE-BITBYTE
 - BASE-CMOV
-#- BASE-COND_BR
+- BASE-COND_BR
 - BASE-CONVERT
 - BASE-DATAXFER
 - BASE-FLAGOP
@@ -29,9 +30,7 @@ instruction_categories:
 - BASE-PUSH
 - BASE-SEMAPHORE
 - BASE-SETCC
-# - BASE-STRINGOP
-- BASE-RET
-- BASE-CALL
+- BASE-STRINGOP
 
 # these clauses may be re-assigned later
 contract_observation_clause: loads+stores+pc
@@ -70,8 +69,8 @@ instruction_blocklist_append:
 - repne scasq
 
 
-# v5.yaml
-max_successors_per_bb: 0
-min_successors_per_bb: 0
-min_bb_per_function: 1
-max_bb_per_function: 1
+# v2.yaml
+max_successors_per_bb: 2
+min_successors_per_bb: 1
+min_bb_per_function: 3
+max_bb_per_function: 3

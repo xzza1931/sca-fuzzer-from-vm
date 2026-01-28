@@ -4,8 +4,8 @@
 input_gen_entropy_bits: 24
 inputs_per_class: 2
 
-enable_speculation_filter: true
-enable_observation_filter: true
+enable_speculation_filter: false
+enable_observation_filter: false
 enable_priming: true
 
 program_size: 32

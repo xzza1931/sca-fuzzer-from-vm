@@ -1,10 +1,11 @@
+#用于测试v4的配置文件
 
 # common.yaml
 input_gen_entropy_bits: 24
 inputs_per_class: 2
 
-enable_speculation_filter: true
-enable_observation_filter: true
+enable_speculation_filter: false
+enable_observation_filter: false
 enable_priming: true
 
 program_size: 32
@@ -16,7 +17,7 @@ logging_modes:
 
 instruction_categories:
 - BASE-BINARY
-- BASE-BITBYTE
+- BASE-BITBYTE 
 - BASE-CMOV
 #- BASE-COND_BR
 - BASE-CONVERT
@@ -29,14 +30,12 @@ instruction_categories:
 - BASE-PUSH
 - BASE-SEMAPHORE
 - BASE-SETCC
-# - BASE-STRINGOP
-- BASE-RET
-- BASE-CALL
+#- BASE-STRINGOP
 
 # these clauses may be re-assigned later
 contract_observation_clause: loads+stores+pc
 contract_execution_clause:
-    - no_speculation
+    - cond
 
 #program_generator_seed: 100
 #input_gen_seed: 100
@@ -68,10 +67,14 @@ instruction_blocklist_append:
 - repne scasd
 - repne scasw
 - repne scasq
+- bt
 
 
-# v5.yaml
-max_successors_per_bb: 0
-min_successors_per_bb: 0
-min_bb_per_function: 1
-max_bb_per_function: 1
+
+max_successors_per_bb: 1
+min_successors_per_bb: 1
+min_bb_per_function: 3
+max_bb_per_function: 3
+
+x86_executor_enable_ssbp_patch: false
+enable_fast_path_model: false
